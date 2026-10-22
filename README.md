@@ -91,7 +91,7 @@ $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text
 
 ### Figure 7: The Spanish Territorial Paradox & European Benchmark (Eurostat / BdE)
 ![Figure 7: European Benchmark and Territorial Paradox](assets/figure_7_european_benchmark_paradox.png)
-*Eurostat GEOSTAT 1km² population grid and EU-SILC indicators: Spain has 87.0% uninhabited territory but the highest effective residential density in the EU (737 hab/km²), severe market-rent cost overburden (38.0%), and delayed youth emancipation (30.3 years).*
+*Eurostat GEOSTAT 1km² grid and Banco de España (Annual Report 2025/2026): (A) Spain's 87.0% uninhabited territory paradox, (B) Highest effective residential density in the EU (737 hab/km²), (C) Cumulative housing deficit 2021–2025 (-3.9% of households, ~750,000 homes; BdE Slide 29), and (D) Escalating effort ratio reaching 10.0 years of net income for tenant households in Madrid, Barcelona, and Málaga (BdE Slide 43).*
 
 ---
 

@@ -139,13 +139,11 @@ class EconometricVisualizer:
         ax.set_xlabel("Estimated Coefficient on Log Housing Price (€/sqm) [95% CI]", fontsize=11, labelpad=8)
         ax.set_title("Figure 1: Institutional Determinants of Housing Prices in Spain (Two-Way FE Model)", fontsize=13, pad=14)
 
-        # Explanatory subtitle banner
-        ax.text(0.02, 0.06,
-                "Model includes Municipality Fixed Effects and Year Fixed Effects (Two-Way FE).\nStandard errors clustered at municipality level (N=780). *** p<0.001, ** p<0.01, * p<0.05",
-                transform=ax.transAxes, fontsize=8.5, color="#64748B",
-                bbox=dict(boxstyle="round,pad=0.5", facecolor="#F8FAFC", edgecolor="#CBD5E1", alpha=0.9))
+        # Footnote cleanly placed below the plot
+        plt.figtext(0.12, 0.01, "Nota: Errores estándar agrupados por municipio (N=780). Efectos fijos de municipio y año. *** p<0.001, ** p<0.01, * p<0.05",
+                    fontsize=8.5, color="#64748B", ha="left")
 
-        plt.tight_layout()
+        plt.tight_layout(rect=[0, 0.03, 1, 1])
         output_path = os.path.join(self.output_dir, "figure_1_panel_regression_coefficients.png")
         fig.savefig(output_path)
         plt.close(fig)
@@ -197,13 +195,10 @@ class EconometricVisualizer:
         ax.legend(frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=10)
         ax.set_ylim(0, max(byright_vals) * 1.25)
 
-        # Context box
-        ax.text(0.03, 0.88,
-                "Wald Test for Structural Break in Elasticity:\nZ = 2.137, p = 0.0326 (Statistically Significant)",
-                transform=ax.transAxes, fontsize=8.5, weight="medium", color="#1E293B",
-                bbox=dict(boxstyle="square,pad=0.5", facecolor="#F1F5F9", edgecolor="#CBD5E1"))
+        plt.figtext(0.12, 0.01, "Test de Wald para quiebre estructural de elasticidad: Z = 2.137, p = 0.0326 (estadísticamente significativo al 95%)",
+                    fontsize=8.5, color="#64748B", ha="left")
 
-        plt.tight_layout()
+        plt.tight_layout(rect=[0, 0.03, 1, 1])
         output_path = os.path.join(self.output_dir, "figure_2_supply_elasticity_by_tier.png")
         fig.savefig(output_path)
         plt.close(fig)
@@ -370,14 +365,11 @@ class EconometricVisualizer:
                 color="#0F172A",
             )
 
-        # Quadrant benchmarks
+        # Dotted quadrant reference lines
         median_delay = df_2023["licensing_delay_months"].median()
         median_premium = df_2023["reclassification_premium"].median()
-        ax.axvline(median_delay, color="#94A3B8", linestyle=":", lw=1.2)
-        ax.axhline(median_premium, color="#94A3B8", linestyle=":", lw=1.2)
-
-        ax.text(median_delay + 0.5, 42, "HIGH DELAY / ACUTE SPECULATIVE RENTS\n(Metros & Coastal Hotspots)", fontsize=8.5, weight="bold", color="#BE123C")
-        ax.text(7.5, 14.5, "LOW RENT-SEEKING ZONE\n(Interior Municipalities)", fontsize=8.5, weight="bold", color="#047857")
+        ax.axvline(median_delay, color="#94A3B8", linestyle=":", lw=1.2, alpha=0.7)
+        ax.axhline(median_premium, color="#94A3B8", linestyle=":", lw=1.2, alpha=0.7)
 
         ax.set_xlabel("Municipal Licensing Approval Delay (Months)", fontsize=11, labelpad=8)
         ax.set_ylabel("Artificial Scarcity Reclassification Premium (x-fold jump in land value)", fontsize=11, labelpad=8)

@@ -71,21 +71,20 @@ La rigidez institucional impuesta sobre la oferta agregada de vivienda traslada 
 
 La manifestación empírica más contundente del bloqueo regulatorio se localiza en el desacople entre la **creación demográfica neta de hogares** y la **producción física de nueva vivienda**:
 
-* **Dinámica Demográfica:** Según los análisis de Ángel Gavilán (Director General de Economía del Banco de España), entre 2021 y 2024 el ritmo medio de creación neta de hogares en España ha escalado hasta situarse en el intervalo de **250.000 a 280.000 hogares anuales** (alrededor de 275.000 en 2023 y 280.000 en 2024), impulsado por flujos migratorios netos y la reducción del tamaño medio familiar (2,3 miembros).
-* **Parálisis Productiva:** Los visados de obra nueva y las certificaciones de fin de obra del MITMA se han mantenido estancados entre **80.000 y 93.000 viviendas anuales**.
-* **El Gap Acumulado:** El Banco de España cifra el déficit acumulado de vivienda en **entre 450.000 y 600.000 unidades**, concentrándose el 70% de la escasez física en las coronas metropolitanas de Madrid y Barcelona, la franja mediterránea y los archipiélagos.
+* **Dinámica Demográfica:** Según el Informe Anual 2025 del Banco de España presentado por **David López Salido** (Director General de Economía, 18 de junio de 2026), entre 2021 y 2025 el ritmo medio de creación neta de hogares ha escalado de forma continuada, impulsado por flujos migratorios netos y la reducción del tamaño medio del hogar (2,3 miembros).
+* **Parálisis Productiva:** La producción de nueva vivienda terminada se mantiene estancada por debajo de las 93.000 unidades anuales debido a la parálisis en el desarrollo de suelo y las rigideces en la gestión urbanística local.
+* **El Gap Acumulado (750.000 Viviendas):** El Banco de España certifica formalmente que el **diferencial acumulado entre 2021 y 2025 asciende a unas 750.000 viviendas** (equivalente a un **-3,9%** de los hogares promedio del período, superado en la UE únicamente por Portugal con -7% y Países Bajos con -4,7%). Cerca del 70% de este déficit físico se concentra en las coronas metropolitanas de Madrid y Barcelona, la franja mediterránea y los archipiélagos.
 
-### Cuadro 3: Balance Anual de Flujos: Nuevos Hogares vs. Viviendas Terminadas
+### Cuadro 3: Balance Acumulado de Flujos y Déficit de Vivienda (Banco de España 2021–2025)
 
-| Ejercicio Anual | Creación Neta de Hogares (INE) | Visados Obra Nueva | Viviendas Terminadas (MITMA) | Déficit de Flujo Anual (Gap) |
-| :--- | :---: | :---: | :---: | :---: |
-| 2021 | +195.000 | 108.318 | 85.200 | **-109.800** |
-| 2022 | +245.000 | 109.020 | 80.120 | **-164.880** |
-| 2023 | +275.000 | 109.550 | 89.200 | **-185.800** |
-| 2024 | +280.000 | 115.000 | 92.500 | **-187.500** |
-| **Déficit Estructural Acumulado** | — | — | — | **~500.000 - 600.000 unidades** |
+| Indicador Oficial (Banco de España, 18 junio 2026) | Registro Oficial | Contexto Comparativo Europeo |
+| :--- | :---: | :--- |
+| **Déficit Acumulado 2021–2025** | **~750.000 viviendas** | Diferencial de -3,9% de los hogares promedio |
+| **Años de Renta para Comprar (Madrid, BCN, Málaga)** | **10,0 años de renta neta** | Frente a 4,0 años en el promedio nacional de propietarios |
+| **Parque Público de Vivienda** | **1,5% (1 de cada 65 casas)** | Frente al 34,1% de Países Bajos, 23,6% de Austria o 14,0% de Francia |
+| **Inquilinos con Esfuerzo > 40% (Mercado Libre)** | **38,0% - 40,0%** | Casi el doble de la media de la UE (21,2%) |
 
-*Fuentes: Banco de España (Informe Anual 2023/2024), INE y Ministerio de Transportes y Movilidad Sostenible.*
+*Fuentes: Banco de España (Presentación del Informe Anual 2025 por David López Salido, 18 de junio de 2026), INE y Ministerio de Transportes.*
 
 ### El Cuello de Botella Burocrático de las Licencias (ASPRIMA / APCEspaña)
 Mientras que la legislación autonómica prescribe un plazo legal teórico de resolución de licencias de **3 meses**, los informes empíricos de las patronales promotoras (**ASPRIMA** y **APCEspaña**) auditan demoras reales promedio de:
