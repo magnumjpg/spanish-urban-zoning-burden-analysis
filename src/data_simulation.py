@@ -287,9 +287,32 @@ class SpanishUrbanPanelGenerator:
                 counterfactual_starts_per_1000 = float(np.clip(counterfactual_starts_per_1000, 1.5, 14.5))
                 by_right_new_units = (counterfactual_starts_per_1000 * current_pop) / 1000.0
 
-                # 5. Welfare Economics Metrics
-                # Dwelling size standard
+                # 5. Socioeconomic Impact & Housing Affordability Metrics
+                # Average household standard: 95 sqm dwelling, approx 1.4 wage earners per household
                 avg_sqm_per_unit = 95.0
+                household_income = current_income * 1.42
+
+                # Housing Effort Ratio (Years of gross household income needed to purchase a 95 sqm home)
+                # Benchmark Banco de España: >7 years is critical overexertion; sustainable is 4.0 - 4.5 years
+                housing_effort_ratio_years = float(round((housing_price_sqm * avg_sqm_per_unit) / household_income, 2))
+                by_right_effort_ratio_years = float(round((by_right_price_sqm * avg_sqm_per_unit) / household_income, 2))
+
+                # Net Household Formation vs New Completions (Banco de España Structural Deficit Gap)
+                # Approx 2.1 persons per newly formed household
+                net_household_formation = float(max(10.0, (current_pop * max(0.0005, annual_pop_growth)) / 2.1))
+                housing_deficit_units = float(max(0.0, net_household_formation - new_units_pgou))
+                by_right_housing_deficit = float(max(0.0, net_household_formation - by_right_new_units))
+
+                # Overcrowding Rate (% population living in overcrowded housing according to Eurostat / INE ECV)
+                # Strongly correlated with effort ratio and urban density friction
+                overcrowding_base = 5.2 if "Tier 4" in muni.tier else 7.5
+                overcrowding_penalty = 1.65 * max(0.0, housing_effort_ratio_years - 4.8)
+                overcrowding_rate_pct = float(np.clip(overcrowding_base + overcrowding_penalty + self.rng.normal(0.0, 0.4), 4.0, 26.0))
+                
+                # By-Right Overcrowding (relieved through accessible supply)
+                by_right_overcrowding_pct = float(np.clip(overcrowding_base + 1.65 * max(0.0, by_right_effort_ratio_years - 4.8) + self.rng.normal(0.0, 0.3), 4.0, 14.0))
+
+                # 6. Welfare Economics Metrics
                 price_delta_sqm = housing_price_sqm - by_right_price_sqm
                 quantity_delta_units = max(0.0, by_right_new_units - new_units_pgou)
 
@@ -313,6 +336,7 @@ class SpanishUrbanPanelGenerator:
                     "population": int(round(current_pop)),
                     "pop_growth_pct": float(round(annual_pop_growth * 100.0, 3)),
                     "income_per_capita": float(round(current_income, 2)),
+                    "household_income": float(round(household_income, 2)),
                     "euribor_12m": float(round(euribor, 2)),
                     "construction_cost_sqm": float(round(construction_cost_sqm, 2)),
                     "licensing_delay_months": float(round(licensing_delay_months, 2)),
@@ -330,6 +354,14 @@ class SpanishUrbanPanelGenerator:
                     "by_right_new_units": float(round(by_right_new_units, 1)),
                     "by_right_supply_elasticity": float(round(counterfactual_supply_elasticity, 3)),
                     "artificial_price_markup_pct": float(round(((housing_price_sqm / by_right_price_sqm) - 1.0) * 100.0, 2)),
+                    # Affordability, Overcrowding & Structural Gap Metrics
+                    "housing_effort_ratio_years": housing_effort_ratio_years,
+                    "by_right_effort_ratio_years": by_right_effort_ratio_years,
+                    "net_household_formation": float(round(net_household_formation, 1)),
+                    "housing_deficit_units": float(round(housing_deficit_units, 1)),
+                    "by_right_housing_deficit": float(round(by_right_housing_deficit, 1)),
+                    "overcrowding_rate_pct": float(round(overcrowding_rate_pct, 2)),
+                    "by_right_overcrowding_pct": float(round(by_right_overcrowding_pct, 2)),
                     # Welfare quantification
                     "deadweight_loss_millions": float(round(dwl_annual_millions, 3)),
                     "wealth_transfer_millions": float(round(wealth_transfer_millions, 3)),

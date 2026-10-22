@@ -181,12 +181,18 @@ We simulate the empirical distribution of economic relief under 3 concrete polic
 mc_sim = MonteCarloPolicySimulator("data/spanish_municipalities_panel.csv", n_sims=10000, seed=42)
 mc_results = mc_sim.run_simulations()
 
-for k, v in mc_results.items():
+bm = mc_results["benchmarks"]
+print(f"Baseline Effort Ratio (Metros):         {bm['current_effort']:.2f} years of income")
+print(f"Baseline Overcrowding (Metros):         {bm['current_overcrowd']:.2f}%")
+print(f"Baseline Structural Housing Deficit:    {bm['current_deficit']:,.0f} units/year")
+
+for s_key in ["s1", "s2", "s3"]:
+    v = mc_results[s_key]
     print(f"\\n{v['name']}:")
-    print(f"  Price Reduction:     -{v['median_drop']:.2f}% (95% CI: [{v['ci_95_drop'][0]:.2f}%, {v['ci_95_drop'][1]:.2f}%])")
-    print(f"  Annual Savings:      €{v['median_savings']:.2f} Billion/year (95% CI: [€{v['ci_95_savings'][0]:.2f}B, €{v['ci_95_savings'][1]:.2f}B])")
-    if 'median_units' in v:
-        print(f"  Unlocked New Homes:  +{v['median_units']:,.0f} units/year")
+    print(f"  Price Reduction (Median):             -{np.median(v['price_drop']):.2f}%")
+    print(f"  Effort Ratio (Median):                {np.median(v['effort']):.2f} years")
+    print(f"  Overcrowding Rate (Median):           {np.median(v['overcrowd']):.2f}%")
+    print(f"  Remaining Annual Deficit (Median):    {np.median(v['deficit']):,.0f} units")
 
 display(Image(filename="assets/figure_6_monte_carlo_policy_simulation.png"))
 """))
