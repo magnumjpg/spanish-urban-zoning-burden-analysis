@@ -1,5 +1,5 @@
 # Monopolio del Suelo, Escasez Artificial y la Paradoja de Densidad en España
-## Un Análisis Cuantitativo e Institucional de la Regulación del Suelo (2000–2024)
+## Un Análisis Cuantitativo e Institucional de la Regulación del Suelo (2000-2024)
 
 **Autor:** Jaime Pérez | *Business Operations, Strategy & Quantitative Analysis*  
 **Marco Teórico:** Economía Institucional (*Public Choice*), Econometría de Panel (*Two-Way Fixed Effects*), Microeconomía del Bienestar y Demografía Espacial  
@@ -32,7 +32,7 @@ Para corregir esta distorsión, la metodología desarrollada por **Eurostat y el
 
 En el plano metropolitano, esta anomalía se traduce en una de las mayores densidades residenciales por kilómetro cuadrado construido del mundo desarrollado. El tejido urbano español se ha estructurado históricamente en vertical: **el 65,7% de la población reside en pisos plurifamiliares en bloque (frente al 47,5% del promedio de la UE)**, alcanzando densidades netas residenciales de **35.000 a 45.000 hab/km² en Barcelona** y **22.000 a 32.000 hab/km² en Madrid**, muy por encima de Londres o Berlín.
 
-![Figura 7: El Espejo Europeo y la Paradoja Territorial](assets/figure_7_european_benchmark_paradox.png)
+![Figura 1: El Espejo Europeo y la Paradoja Territorial](assets/figure_1_european_benchmark_paradox.png)
 
 ### El Mecanismo Institucional de Contención Perimetral
 La causa de este confinamiento perimetral no es orográfica ni biofísica (los modelos espaciales demuestran que las variables climáticas y topográficas no explican el vacío español). La causa es la **economía política del monopolio del suelo municipal**.
@@ -75,11 +75,11 @@ La manifestación empírica más contundente del bloqueo regulatorio se localiza
 * **Parálisis Productiva:** La producción de nueva vivienda terminada se mantiene estancada por debajo de las 93.000 unidades anuales debido a la parálisis en el desarrollo de suelo y las rigideces en la gestión urbanística local.
 * **El Gap Acumulado (750.000 Viviendas):** El Banco de España certifica formalmente que el **diferencial acumulado entre 2021 y 2025 asciende a unas 750.000 viviendas** (equivalente a un **-3,9%** de los hogares promedio del período, superado en la UE únicamente por Portugal con -7% y Países Bajos con -4,7%). Cerca del 70% de este déficit físico se concentra en las coronas metropolitanas de Madrid y Barcelona, la franja mediterránea y los archipiélagos.
 
-### Cuadro 3: Balance Acumulado de Flujos y Déficit de Vivienda (Banco de España 2021–2025)
+### Cuadro 3: Balance Acumulado de Flujos y Déficit de Vivienda (Banco de España 2021-2025)
 
 | Indicador Oficial (Banco de España, 18 junio 2026) | Registro Oficial | Contexto Comparativo Europeo |
 | :--- | :---: | :--- |
-| **Déficit Acumulado 2021–2025** | **~750.000 viviendas** | Diferencial de -3,9% de los hogares promedio |
+| **Déficit Acumulado 2021-2025** | **~750.000 viviendas** | Diferencial de -3,9% de los hogares promedio |
 | **Años de Renta para Comprar (Madrid, BCN, Málaga)** | **10,0 años de renta neta** | Frente a 4,0 años en el promedio nacional de propietarios |
 | **Parque Público de Vivienda** | **1,5% (1 de cada 65 casas)** | Frente al 34,1% de Países Bajos, 23,6% de Austria o 14,0% de Francia |
 | **Inquilinos con Esfuerzo > 40% (Mercado Libre)** | **38,0% - 40,0%** | Casi el doble de la media de la UE (21,2%) |
@@ -97,17 +97,18 @@ Mientras que la legislación autonómica prescribe un plazo legal teórico de re
 
 ## 4. Hallazgos Econométricos Causales: El Modelo de Panel (Two-Way FE)
 
-A través de un panel de **52 municipios estratégicos durante 15 años (2009–2023, $N = 780$)**, estimamos el impacto de las restricciones de planeamiento sobre el logaritmo del precio por metro cuadrado ($\ln P_{it}$), controlando por efectos fijos de municipio ($\alpha_i$) y efectos fijos de año ($\lambda_t$):
+A través de un panel de **52 municipios estratégicos durante 15 años (2009-2023, $N = 780$)**, estimamos el impacto de las restricciones de planeamiento sobre el logaritmo del precio por metro cuadrado ($\ln P_{it}$), controlando por efectos fijos de municipio ($\alpha_i$) y efectos fijos de año ($\lambda_t$):
 
 $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{RetrasoLicencias}_{it} + \beta_2 \text{SueloCongelado}_{it} + \beta_3 \ln(\text{Renta}_{it}) + u_{it}$$
 
 ### Resultados Clave:
-1. **El Impuesto Burocrático de las Licencias:** $\beta_1 = +0.0153^{***}$ ($p < 0.001$, errores estándar clúster = 0.0025). **Cada mes adicional de retraso municipal en otorgar licencias encarece el precio de la vivienda un +1,53% ceteris paribus**. En Madrid o Barcelona (18–22 meses de espera), la burocracia municipal explica entre el **+22% y el +26% del coste final de adquisición**.
+1. **El Impuesto Burocrático de las Licencias:** $\beta_1 = +0.0153^{***}$ ($p < 0.001$, errores estándar clúster = 0.0025). **Cada mes adicional de retraso municipal en otorgar licencias encarece el precio de la vivienda un +1,53% ceteris paribus**. En Madrid o Barcelona (18-22 meses de espera), la burocracia municipal explica entre el **+22% y el +26% del coste final de adquisición**.
 2. **Racionamiento Artificial de Suelo:** $\beta_2 = +0.2686^{**}$ ($p = 0.0056$). Un aumento del 10% en el ratio de suelo retenido como rústico común genera una subida del **+2,69% en el precio por metro cuadrado**.
 3. **Colapso de la Elasticidad de Oferta ($\epsilon_s$):** En las grandes áreas metropolitanas, la elasticidad-precio bajo el PGOU está encorsetada en $\epsilon_s = 0.31$ (en línea con el 0,45 estimado por el Banco de España). Bajo un régimen liberalizado By-Right, la elasticidad escala hasta $\epsilon_s = 1.20$ (multiplicador de 3,8x), permitiendo absorber la demanda sin tensionar precios.
 
-![Figura 1: Coeficientes de Regresión TWFE](assets/figure_1_panel_regression_coefficients.png)
-![Figura 2: Elasticidad de Oferta por Estratos](assets/figure_2_supply_elasticity_by_tier.png)
+![Figura 2: Coeficientes de Regresión TWFE](assets/figure_2_panel_regression_coefficients.png)
+![Figura 3: Matriz de Esclerosis Institucional](assets/figure_3_scarcity_matrix_heatmap.png)
+![Figura 4: Elasticidad de Oferta por Estratos](assets/figure_4_supply_elasticity_by_tier.png)
 
 ---
 
@@ -118,9 +119,8 @@ Bajo el marco de microeconomía del bienestar de Paul Cheshire y Stephen Sheppar
 * **Disipación de Rentas de Tullock (Rentas de Monopolio):** **44.460 millones de euros** transferidos de los compradores hacia costes financieros de inmovilización, gastos legales y sobreprecios de recalificación especulativa (*el pelotazo*).
 * **Coste Social Total Acumulado:** **73.590 millones de euros** (**4.382 € por habitante** de la muestra).
 
-![Figura 3: Pérdida de Bienestar y Rent Seeking](assets/figure_3_welfare_deadweight_loss_breakdown.png)
-![Figura 4: Divergencia Temporal de Precios](assets/figure_4_longitudinal_price_divergence.png)
-![Figura 5: Matriz de Esclerosis Institucional](assets/figure_5_scarcity_matrix_heatmap.png)
+![Figura 5: Pérdida de Bienestar y Rent Seeking](assets/figure_5_welfare_deadweight_loss_breakdown.png)
+![Figura 6: Divergencia Temporal de Precios](assets/figure_6_longitudinal_price_divergence.png)
 
 ---
 
@@ -128,7 +128,7 @@ Bajo el marco de microeconomía del bienestar de Paul Cheshire y Stephen Sheppar
 
 Para evaluar el impacto de reformas institucionales sin recurrir a suposiciones homogéneas, implementamos una **simulación estocástica de Monte Carlo con 10.000 iteraciones** que incorpora heterogeneidad orográfica (asimetría log-normal) y elasticidad de oferta no lineal:
 
-![Figura 6: Simulación de Monte Carlo Multidimensional](assets/figure_6_monte_carlo_policy_simulation.png)
+![Figura 7: Simulación de Monte Carlo Multidimensional](assets/figure_7_monte_carlo_policy_simulation.png)
 
 ### Resultados de los 3 Escenarios de Reforma:
 1. **Escenario 1 (Vía Rápida de Licencias / Silencio Positivo a 3 meses):**

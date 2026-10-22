@@ -73,17 +73,17 @@ class EconometricVisualizer:
 
     def generate_all_figures(self):
         """Runs the entire visualization suite and exports to /assets."""
-        print("[Visualization Agent] Generating publication-grade figures...")
-        self.plot_figure_1_coefficients()
-        self.plot_figure_2_elasticity_by_tier()
-        self.plot_figure_3_welfare_burden_timeseries()
-        self.plot_figure_4_price_divergence()
-        self.plot_figure_5_scarcity_matrix()
+        print("[Visualization Agent] Generating publication-grade figures in narrative order...")
+        self.plot_figure_2_coefficients()
+        self.plot_figure_3_scarcity_matrix()
+        self.plot_figure_4_elasticity_by_tier()
+        self.plot_figure_5_welfare_burden_timeseries()
+        self.plot_figure_6_price_divergence()
         print(f"[Visualization Agent] All 5 figures successfully exported to '{self.output_dir}/'.")
 
-    def plot_figure_1_coefficients(self):
+    def plot_figure_2_coefficients(self):
         """
-        Figure 1: Forest plot of Two-Way Fixed Effects (TWFE) marginal effects on ln(Price/sqm).
+        Figure 2: Forest plot of Two-Way Fixed Effects (TWFE) marginal effects on ln(Price/sqm).
         """
         reg_results = self.econ.run_price_panel_models()
         res_twfe = reg_results["TWFE_Benchmark"]
@@ -137,20 +137,20 @@ class EconometricVisualizer:
         ax.set_yticks(y_pos)
         ax.set_yticklabels(df_plot["label"], fontsize=10, weight="medium")
         ax.set_xlabel("Estimated Coefficient on Log Housing Price (€/sqm) [95% CI]", fontsize=11, labelpad=8)
-        ax.set_title("Figure 1: Institutional Determinants of Housing Prices in Spain (Two-Way FE Model)", fontsize=13, pad=14)
+        ax.set_title("Figure 2: Institutional Determinants of Housing Prices in Spain (Two-Way FE Model)", fontsize=13, pad=14)
 
         # Footnote cleanly placed below the plot
         plt.figtext(0.12, 0.01, "Nota: Errores estándar agrupados por municipio (N=780). Efectos fijos de municipio y año. *** p<0.001, ** p<0.01, * p<0.05",
                     fontsize=8.5, color="#64748B", ha="left")
 
         plt.tight_layout(rect=[0, 0.03, 1, 1])
-        output_path = os.path.join(self.output_dir, "figure_1_panel_regression_coefficients.png")
+        output_path = os.path.join(self.output_dir, "figure_2_panel_regression_coefficients.png")
         fig.savefig(output_path)
         plt.close(fig)
 
-    def plot_figure_2_elasticity_by_tier(self):
+    def plot_figure_4_elasticity_by_tier(self):
         """
-        Figure 2: Supply elasticity comparison between Discretionary PGOU and By-Right regimes.
+        Figure 4: Supply elasticity comparison between Discretionary PGOU and By-Right regimes.
         """
         elasticity_res = self.econ.estimate_supply_elasticities()
         tier_data = elasticity_res["tier_elasticities"]
@@ -189,7 +189,7 @@ class EconometricVisualizer:
                 ax.text(x[i] + width/2, val_br + 0.07, f"{mult:.1f}x", ha="center", va="bottom", fontsize=10, weight="bold", color="#0D9488")
 
         ax.set_ylabel("Housing Supply Elasticity (ε_s = %ΔStarts / %ΔPrice)", fontsize=11, labelpad=8)
-        ax.set_title("Figure 2: Housing Supply Elasticity: Discretionary Zoning vs. By-Right Liberalization", fontsize=13, pad=12)
+        ax.set_title("Figure 4: Housing Supply Elasticity: Discretionary Zoning vs. By-Right Liberalization", fontsize=13, pad=12)
         ax.set_xticks(x)
         ax.set_xticklabels(tier_labels, fontsize=10, weight="medium")
         ax.legend(frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=10)
@@ -199,13 +199,13 @@ class EconometricVisualizer:
                     fontsize=8.5, color="#64748B", ha="left")
 
         plt.tight_layout(rect=[0, 0.03, 1, 1])
-        output_path = os.path.join(self.output_dir, "figure_2_supply_elasticity_by_tier.png")
+        output_path = os.path.join(self.output_dir, "figure_4_supply_elasticity_by_tier.png")
         fig.savefig(output_path)
         plt.close(fig)
 
-    def plot_figure_3_welfare_burden_timeseries(self):
+    def plot_figure_5_welfare_burden_timeseries(self):
         """
-        Figure 3: Welfare economics analysis: Annual Deadweight Loss and Tullock Rent-Seeking Dissipation.
+        Figure 5: Welfare economics analysis: Annual Deadweight Loss and Tullock Rent-Seeking Dissipation.
         """
         df_annual = self.df.groupby("year").agg(
             annual_dwl=("deadweight_loss_millions", "sum"),
@@ -258,15 +258,15 @@ class EconometricVisualizer:
 
         ax2.set_title(f"Cumulative Social Cost: €{grand_total:.2f} Billion\n(€4,382 / resident)", fontsize=12, pad=10)
 
-        fig.suptitle("Figure 3: Welfare Economics of Discretionary Land Use: Harberger Triangles & Tullock Rents", fontsize=14, y=0.98)
+        fig.suptitle("Figure 5: Welfare Economics of Discretionary Land Use: Harberger Triangles & Tullock Rents", fontsize=14, y=0.98)
         plt.tight_layout()
-        output_path = os.path.join(self.output_dir, "figure_3_welfare_deadweight_loss_breakdown.png")
+        output_path = os.path.join(self.output_dir, "figure_5_welfare_deadweight_loss_breakdown.png")
         fig.savefig(output_path)
         plt.close(fig)
 
-    def plot_figure_4_price_divergence(self):
+    def plot_figure_6_price_divergence(self):
         """
-        Figure 4: Longitudinal price trajectory comparison (Actual vs By-Right Counterfactual).
+        Figure 6: Longitudinal price trajectory comparison (Actual vs By-Right Counterfactual).
         """
         focus_munis = ["Madrid", "Barcelona", "Ibiza", "Málaga", "Valencia", "Zaragoza"]
         df_sub = self.df[self.df["municipality_name"].isin(focus_munis)].copy()
@@ -316,15 +316,15 @@ class EconometricVisualizer:
             if i == 0:
                 ax.legend(loc="upper left", fontsize=8.5, frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1")
 
-        fig.suptitle("Figure 4: Longitudinal Price Divergence: Discretionary Status Quo vs. By-Right Regime", fontsize=14, y=0.98)
+        fig.suptitle("Figure 6: Longitudinal Price Divergence: Discretionary Status Quo vs. By-Right Regime", fontsize=14, y=0.98)
         plt.tight_layout()
-        output_path = os.path.join(self.output_dir, "figure_4_longitudinal_price_divergence.png")
+        output_path = os.path.join(self.output_dir, "figure_6_longitudinal_price_divergence.png")
         fig.savefig(output_path)
         plt.close(fig)
 
-    def plot_figure_5_scarcity_matrix(self):
+    def plot_figure_3_scarcity_matrix(self):
         """
-        Figure 5: Scarcity matrix: Reclassification Premium Multiplier vs. Licensing Delay.
+        Figure 3: Scarcity matrix: Reclassification Premium Multiplier vs. Licensing Delay.
         """
         df_2023 = self.df[self.df["year"] == 2023].copy()
 
@@ -373,7 +373,7 @@ class EconometricVisualizer:
 
         ax.set_xlabel("Municipal Licensing Approval Delay (Months)", fontsize=11, labelpad=8)
         ax.set_ylabel("Artificial Scarcity Reclassification Premium (x-fold jump in land value)", fontsize=11, labelpad=8)
-        ax.set_title("Figure 5: Institutional Sclerosis Matrix: Licensing Backlog vs. Land Reclassification Premium (2023)", fontsize=13, pad=12)
+        ax.set_title("Figure 3: Institutional Sclerosis Matrix: Licensing Backlog vs. Land Reclassification Premium (2023)", fontsize=13, pad=12)
         
         # Legend with UNIFORM circle sizes purely for color identification
         legend_handles = [
@@ -385,7 +385,7 @@ class EconometricVisualizer:
                   frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=9.5)
 
         plt.tight_layout()
-        output_path = os.path.join(self.output_dir, "figure_5_scarcity_matrix_heatmap.png")
+        output_path = os.path.join(self.output_dir, "figure_3_scarcity_matrix_heatmap.png")
         fig.savefig(output_path)
         plt.close(fig)
 

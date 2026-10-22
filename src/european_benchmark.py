@@ -38,9 +38,9 @@ plt.rcParams.update({
 })
 
 
-def plot_figure_7_clean(output_path: str = "assets/figure_7_european_benchmark_paradox.png"):
+def plot_figure_1_clean(output_path: str = "assets/figure_1_european_benchmark_paradox.png"):
     """
-    Renders 4-panel clean benchmark:
+    Renders 4-panel clean benchmark (Figure 1):
     - Panel A: Inhabited 1km² Grid Cells (%) [Eurostat GEOSTAT]
     - Panel B: Effective Residential Density in Inhabited Areas (hab/km²) [Eurostat/BdE]
     - Panel C: Cumulative Housing Deficit 2021-2025 (% Average Households) [BdE Slide 29]
@@ -122,15 +122,15 @@ def plot_figure_7_clean(output_path: str = "assets/figure_7_european_benchmark_p
     ax.set_title("D. Años de Renta para Comprar Vivienda (BdE Slide 43)", fontsize=11.0, weight="bold")
 
     fig.suptitle(
-        "Figura 7: Diagnóstico Territorial y de Oferta: Datos Oficiales Eurostat y Banco de España (Informe Anual 2025/2026)",
+        "Figure 1: Diagnóstico Territorial y de Oferta: Datos Oficiales Eurostat y Banco de España (Informe Anual 2025/2026)",
         fontsize=12.5, weight="bold", y=0.99
     )
     plt.tight_layout()
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     fig.savefig(output_path, dpi=300)
     plt.close(fig)
-    print(f"[Clean Visualizer] Clean Figure 7 exported to: {output_path}")
+    print(f"[Clean Visualizer] Clean Figure 1 exported to: {output_path}")
 
 
 if __name__ == "__main__":
-    plot_figure_7_clean()
+    plot_figure_1_clean()

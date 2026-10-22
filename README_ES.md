@@ -39,12 +39,12 @@ Los análisis demográficos tradicionales suelen enmascarar los patrones reales 
 - Esfuerzo financiero prohibitivo: El Banco de España (Diapositiva 43) certifica que los hogares en régimen de alquiler en Madrid, Barcelona y Málaga necesitan 10,0 años de renta neta disponible para adquirir una vivienda habitual, frente a una media de 4,0 años para el conjunto de propietarios a nivel nacional.
 
 ```
-                      FIGURA 7: LA PARADOJA TERRITORIAL ESPAÑOLA
+                      FIGURA 1: LA PARADOJA TERRITORIAL ESPAÑOLA
  (Malla GEOSTAT 1 km² de Eurostat y Presentación Informe Anual 2025 Banco de España)
 ```
-![Figura 7: Benchmark Europeo y Paradoja Territorial](assets/figure_7_european_benchmark_paradox.png)
+![Figura 1: Benchmark Europeo y Paradoja Territorial](assets/figure_1_european_benchmark_paradox.png)
 
-*Diagnóstico de la Figura 7: (A) 87% de territorio deshabitado en mallas de 1 km², (B) Mayor densidad residencial efectiva de la UE (737 hab/km²), (C) Déficit acumulado de 750.000 viviendas entre 2021 y 2025 (Banco de España Diapositiva 29), y (D) Esfuerzo de compra de 10 años de renta neta para inquilinos en Madrid, Barcelona y Málaga (Banco de España Diapositiva 43).*
+*Diagnóstico de la Figura 1: (A) 87% de territorio deshabitado en mallas de 1 km², (B) Mayor densidad residencial efectiva de la UE (737 hab/km²), (C) Déficit acumulado de 750.000 viviendas entre 2021 y 2025 (Banco de España Diapositiva 29), y (D) Esfuerzo de compra de 10 años de renta neta para inquilinos en Madrid, Barcelona y Málaga (Banco de España Diapositiva 43).*
 
 ---
 
@@ -108,20 +108,20 @@ Donde:
 *Nivel de significación estadística: *** p < 0.001, ** p < 0.01, * p < 0.05. Errores estándar agrupados por municipio entre paréntesis.*
 
 ```
-            FIGURA 1: COEFICIENTES ESTIMADOS DEL MODELO TWO-WAY FIXED EFFECTS
+            FIGURA 2: COEFICIENTES ESTIMADOS DEL MODELO TWO-WAY FIXED EFFECTS
 ```
-![Figura 1: Coeficientes de Regresión TWFE](assets/figure_1_panel_regression_coefficients.png)
+![Figura 2: Coeficientes de Regresión TWFE](assets/figure_2_panel_regression_coefficients.png)
 
-*Nota de la Figura 1: Efectos marginales e intervalos de confianza al 95% de la especificación TWFE. Cada mes adicional de atasco en la concesión municipal de licencias encarece el metro cuadrado residencial un +1,53% ceteris paribus (t = 6.12).*
+*Nota de la Figura 2: Efectos marginales e intervalos de confianza al 95% de la especificación TWFE. Cada mes adicional de atasco en la concesión municipal de licencias encarece el metro cuadrado residencial un +1,53% ceteris paribus (t = 6.12).*
 
 Para examinar cómo interactúan las demoras burocráticas con los sobreprecios de recalificación según el tamaño del municipio, construimos la Matriz de Esclerosis Institucional con el corte transversal de 2023:
 
 ```
-               FIGURA 5: MATRIZ DE ESCLEROSIS INSTITUCIONAL (2023)
+               FIGURA 3: MATRIZ DE ESCLEROSIS INSTITUCIONAL (2023)
 ```
-![Figura 5: Matriz de Esclerosis y Escasez Artificial](assets/figure_5_scarcity_matrix_heatmap.png)
+![Figura 3: Matriz de Esclerosis y Escasez Artificial](assets/figure_3_scarcity_matrix_heatmap.png)
 
-*Nota de la Figura 5: Distribución de meses de retraso municipal frente a multiplicadores de recalificación de suelo rústico a urbano. Las áreas metropolitanas y los enclaves turísticos concentran demoras superiores a 16 meses y sobreprecios superiores a 20 veces.*
+*Nota de la Figura 3: Distribución de meses de retraso municipal frente a multiplicadores de recalificación de suelo rústico a urbano. Las áreas metropolitanas y los enclaves turísticos concentran demoras superiores a 16 meses y sobreprecios superiores a 20 veces.*
 
 ---
 
@@ -138,11 +138,11 @@ El test de hipótesis de Wald confirma el quiebre estructural de elasticidad ent
 $$Z = \frac{\epsilon_s^{\text{ByRight}} - \epsilon_s^{\text{PGOU}}}{\sqrt{\text{Var}(\epsilon_s^{\text{ByRight}}) + \text{Var}(\epsilon_s^{\text{PGOU}})}} = 2.137 \quad (p = 0.0326)$$
 
 ```
-               FIGURA 2: COMPARATIVA DE ELASTICIDAD DE LA OFERTA
+               FIGURA 4: COMPARATIVA DE ELASTICIDAD DE LA OFERTA
 ```
-![Figura 2: Elasticidad de Oferta por Estrato](assets/figure_2_supply_elasticity_by_tier.png)
+![Figura 4: Elasticidad de Oferta por Estrato](assets/figure_4_supply_elasticity_by_tier.png)
 
-*Nota de la Figura 2: Comparativa de elasticidad por estrato municipal. La transición al modelo By-Right multiplica la elasticidad de oferta metropolitana por 3,8x, pasando de una oferta rígida (0.31) a elástica (1.20).*
+*Nota de la Figura 4: Comparativa de elasticidad por estrato municipal. La transición al modelo By-Right multiplica la elasticidad de oferta metropolitana por 3,8x, pasando de una oferta rígida (0.31) a elástica (1.20).*
 
 ---
 
@@ -168,18 +168,18 @@ Donde S = 95 m² representa la superficie media de una vivienda familiar en Espa
 - Coste Social Total: 73.590 millones de euros (4.381,95 euros por residente de la muestra)
 
 ```
-                 FIGURA 3: CUANTIFICACIÓN DEL PERJUICIO SOCIAL
+                 FIGURA 5: CUANTIFICACIÓN DEL PERJUICIO SOCIAL
 ```
-![Figura 3: Desglose de Pérdida de Bienestar](assets/figure_3_welfare_deadweight_loss_breakdown.png)
+![Figura 5: Desglose de Pérdida de Bienestar](assets/figure_5_welfare_deadweight_loss_breakdown.png)
 
-*Nota de la Figura 3: Evolución anual y desglose acumulado de la pérdida de eficiencia y la transferencia de rentas a lo largo de los 15 años analizados.*
+*Nota de la Figura 5: Evolución anual y desglose acumulado de la pérdida de eficiencia y la transferencia de rentas a lo largo de los 15 años analizados.*
 
 ```
-          FIGURA 4: DIVERGENCIA TEMPORAL DE PRECIOS: STATU QUO VS. BY-RIGHT
+          FIGURA 6: DIVERGENCIA TEMPORAL DE PRECIOS: STATU QUO VS. BY-RIGHT
 ```
-![Figura 4: Trayectoria Temporal de Precios](assets/figure_4_longitudinal_price_divergence.png)
+![Figura 6: Trayectoria Temporal de Precios](assets/figure_6_longitudinal_price_divergence.png)
 
-*Nota de la Figura 4: Comparativa de precios observados frente al contrafactual By-Right en Madrid, Barcelona, Ibiza, Málaga, Valencia y Zaragoza. El área sombreada representa la brecha impositiva inducida por la escasez regulatoria.*
+*Nota de la Figura 6: Comparativa de precios observados frente al contrafactual By-Right en Madrid, Barcelona, Ibiza, Málaga, Valencia y Zaragoza. El área sombreada representa la brecha impositiva inducida por la escasez regulatoria.*
 
 ---
 
@@ -192,11 +192,11 @@ Para proyectar el impacto de reformas normativas sin suponer comportamientos hom
 3. Escenario 3 (Reforma Integral By-Right): Régimen de edificabilidad por defecto, tramitación técnica rápida y salto estructural en la elasticidad de oferta (epsilon_s >= 1.20).
 
 ```
-          FIGURA 6: SIMULACIÓN DE MONTE CARLO DE POLÍTICAS (10.000 RUNS)
+          FIGURA 7: SIMULACIÓN DE MONTE CARLO DE POLÍTICAS (10.000 RUNS)
 ```
-![Figura 6: Simulación de Monte Carlo Multidimensional](assets/figure_6_monte_carlo_policy_simulation.png)
+![Figura 7: Simulación de Monte Carlo Multidimensional](assets/figure_7_monte_carlo_policy_simulation.png)
 
-*Nota de la Figura 6: Distribuciones de probabilidad multidimensionales: (A) Descenso de precios, (B) Reducción del esfuerzo salarial de 5,51 a 3,59 años de renta (dentro del umbral verde del Banco de España), (C) Disminución del hacinamiento urbano del 8,9% al 5,7%, y (D) Reducción del 90% en el déficit de vivienda anual.*
+*Nota de la Figura 7: Distribuciones de probabilidad multidimensionales: (A) Descenso de precios, (B) Reducción del esfuerzo salarial de 5,51 a 3,59 años de renta (dentro del umbral verde del Banco de España), (C) Disminución del hacinamiento urbano del 8,9% al 5,7%, y (D) Reducción del 90% en el déficit de vivienda anual.*
 
 ### Resumen de la Simulación
 
@@ -223,24 +223,21 @@ Para proyectar el impacto de reformas normativas sin suponer comportamientos hom
 ```text
 Spanish-urban-zoning-burden-analysis/
 ├── assets/                                   # Gráficos de alta resolución (300 DPI, paleta unificada)
-│   ├── figure_1_panel_regression_coefficients.png
-│   ├── figure_2_supply_elasticity_by_tier.png
-│   ├── figure_3_welfare_deadweight_loss_breakdown.png
-│   ├── figure_4_longitudinal_price_divergence.png
-│   ├── figure_5_scarcity_matrix_heatmap.png
-│   ├── figure_6_monte_carlo_policy_simulation.png
-│   └── figure_7_european_benchmark_paradox.png
+│   ├── figure_1_european_benchmark_paradox.png
+│   ├── figure_2_panel_regression_coefficients.png
+│   ├── figure_3_scarcity_matrix_heatmap.png
+│   ├── figure_4_supply_elasticity_by_tier.png
+│   ├── figure_5_welfare_deadweight_loss_breakdown.png
+│   ├── figure_6_longitudinal_price_divergence.png
+│   └── figure_7_monte_carlo_policy_simulation.png
 ├── data/
 │   └── spanish_municipalities_panel.csv      # Dataset de panel calibrado a 15 años (N=780)
-├── docs/
-│   ├── context.md                            # Contexto institucional y marco de investigación
-│   └── memory.md                             # Memoria continua y lecciones aprendidas
 ├── src/
 │   ├── data_simulation.py                    # Calibración del DGP e ingeniería de datos
 │   ├── econometric_models.py                 # Modelos TWFE, elasticidad y análisis de bienestar
 │   ├── monte_carlo_policy.py                 # Motor de simulación de Monte Carlo (10.000 iteraciones)
-│   ├── visualization.py                      # Pipeline de figuras de publicación (Figuras 1 a 5)
-│   ├── european_benchmark.py                 # Módulo visual de benchmark europeo (Figura 7)
+│   ├── visualization.py                      # Pipeline de figuras de publicación (Figuras 2 a 6)
+│   ├── european_benchmark.py                 # Módulo visual de benchmark europeo (Figura 1)
 │   └── build_notebook.py                     # Generación automatizada del notebook maestro
 ├── analysis_report.ipynb                     # Jupyter Notebook interactivo con resultados ejecutados
 ├── SYSTEM_NOTES.md                           # Cuaderno de notas con métricas y tablas completas

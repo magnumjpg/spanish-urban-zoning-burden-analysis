@@ -36,3 +36,7 @@ wheels/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Internal agent documentation & scratch files
+docs/
+scratch/

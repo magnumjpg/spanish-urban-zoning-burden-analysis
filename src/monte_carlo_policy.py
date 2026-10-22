@@ -146,8 +146,8 @@ class MonteCarloPolicySimulator:
             }
         }
 
-    def plot_monte_carlo_results(self, results: Dict[str, Any], output_path: str = "assets/figure_6_monte_carlo_policy_simulation.png"):
-        """Renders publication-grade 4-panel multi-variable impact distributions."""
+    def plot_monte_carlo_results(self, results: Dict[str, Any], output_path: str = "assets/figure_7_monte_carlo_policy_simulation.png"):
+        """Renders publication-grade 4-panel multi-variable impact distributions (Figure 7)."""
         plt.style.use("seaborn-v0_8-whitegrid")
         fig, axes = plt.subplots(2, 2, figsize=(14, 10))
         axes = axes.flatten()
@@ -257,7 +257,7 @@ class MonteCarloPolicySimulator:
         ax.legend(loc="upper right", frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=8.0)
 
         fig.suptitle(
-            "Figure 6: Monte Carlo Policy Simulation (10,000 Iterations): Price Relief, Affordability, Overcrowding & Supply Deficit",
+            "Figure 7: Monte Carlo Policy Simulation (10,000 Iterations): Price Relief, Affordability, Overcrowding & Supply Deficit",
             fontsize=13, weight="bold", y=0.99
         )
         plt.tight_layout()

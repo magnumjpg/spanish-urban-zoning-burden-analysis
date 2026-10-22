@@ -39,12 +39,12 @@ Conventional demographic metrics often obscure real settlement patterns due to t
 - Crushing effort ratios: The Banco de España (Slide 43) records that tenant households in Madrid, Barcelona, and Málaga now require 10.0 years of total net income to purchase an average home, compared to 4.0 years for existing owner-occupiers nationwide.
 
 ```
-                        FIGURE 7: THE SPANISH TERRITORIAL PARADOX
+                        FIGURE 1: THE SPANISH TERRITORIAL PARADOX
    (Eurostat GEOSTAT 1 km² Population Grid & Banco de España Annual Report 2025/2026)
 ```
-![Figure 7: European Benchmark and Territorial Paradox](assets/figure_7_european_benchmark_paradox.png)
+![Figure 1: European Benchmark and Territorial Paradox](assets/figure_1_european_benchmark_paradox.png)
 
-*Figure 7 Diagnostic: (A) 87% unpopulated land, (B) Highest effective residential density in the EU, (C) 750,000 homes cumulative supply deficit (2021-2025, Banco de España Slide 29), and (D) Escalating effort ratios reaching 10 years of net income for tenant families in Madrid, Barcelona, and Málaga (Banco de España Slide 43).*
+*Figure 1 Diagnostic: (A) 87% unpopulated land, (B) Highest effective residential density in the EU, (C) 750,000 homes cumulative supply deficit (2021-2025, Banco de España Slide 29), and (D) Escalating effort ratios reaching 10 years of net income for tenant families in Madrid, Barcelona, and Málaga (Banco de España Slide 43).*
 
 ---
 
@@ -108,20 +108,20 @@ Where:
 *Statistical significance: *** p < 0.001, ** p < 0.01, * p < 0.05. Clustered standard errors at the municipality level in parentheses.*
 
 ```
-                 FIGURE 1: TWO-WAY FIXED EFFECTS ESTIMATION RESULTS
+                 FIGURE 2: TWO-WAY FIXED EFFECTS ESTIMATION RESULTS
 ```
-![Figure 1: Panel Regression Forest Plot](assets/figure_1_panel_regression_coefficients.png)
+![Figure 2: Panel Regression Forest Plot](assets/figure_2_panel_regression_coefficients.png)
 
-*Figure 1 Note: Marginal effects and 95% confidence intervals from Benchmark TWFE specification. Municipal licensing delays impose a statistically significant penalty of +1.53% on housing price per square meter per month of administrative backlog (t = 6.12).*
+*Figure 2 Note: Marginal effects and 95% confidence intervals from Benchmark TWFE specification. Municipal licensing delays impose a statistically significant penalty of +1.53% on housing price per square meter per month of administrative backlog (t = 6.12).*
 
 To understand how licensing backlog interacts with speculative land markups across regional tiers, we construct the Institutional Sclerosis Matrix for the 2023 cross-section:
 
 ```
-                  FIGURE 5: INSTITUTIONAL SCLEROSIS MATRIX (2023)
+                  FIGURE 3: INSTITUTIONAL SCLEROSIS MATRIX (2023)
 ```
-![Figure 5: Scarcity Matrix Heatmap](assets/figure_5_scarcity_matrix_heatmap.png)
+![Figure 3: Scarcity Matrix Heatmap](assets/figure_3_scarcity_matrix_heatmap.png)
 
-*Figure 5 Note: Cross-sectional distribution of licensing backlogs versus reclassification value premiums across 52 municipalities. Metros and tourist enclaves concentrate extreme delays (>16 months) and astronomical land value jumps (>20x), inflating acquisition costs.*
+*Figure 3 Note: Cross-sectional distribution of licensing backlogs versus reclassification value premiums across 52 municipalities. Metros and tourist enclaves concentrate extreme delays (>16 months) and astronomical land value jumps (>20x), inflating acquisition costs.*
 
 ---
 
@@ -138,11 +138,11 @@ A Wald hypothesis test confirms the structural break in supply elasticity:
 $$Z = \frac{\epsilon_s^{\text{ByRight}} - \epsilon_s^{\text{PGOU}}}{\sqrt{\text{Var}(\epsilon_s^{\text{ByRight}}) + \text{Var}(\epsilon_s^{\text{PGOU}})}} = 2.137 \quad (p = 0.0326)$$
 
 ```
-                      FIGURE 2: HOUSING SUPPLY ELASTICITY
+                      FIGURE 4: HOUSING SUPPLY ELASTICITY
 ```
-![Figure 2: Supply Elasticity Comparison](assets/figure_2_supply_elasticity_by_tier.png)
+![Figure 4: Supply Elasticity Comparison](assets/figure_4_supply_elasticity_by_tier.png)
 
-*Figure 2 Note: Elasticity comparison by municipal tier. Under By-Right liberalization, metro elasticity expands by 3.8x, transitioning supply from highly inelastic (0.31) to elastic (1.20).*
+*Figure 4 Note: Elasticity comparison by municipal tier. Under By-Right liberalization, metro elasticity expands by 3.8x, transitioning supply from highly inelastic (0.31) to elastic (1.20).*
 
 ---
 
@@ -168,18 +168,18 @@ Where S = 95 m² is the average family dwelling surface area (INE Housing Census
 - Total Cumulative Burden: 73.59 billion euros (4,381.95 euros per resident across the panel)
 
 ```
-                     FIGURE 3: CUMULATIVE WELFARE DESTRUCTION
+                     FIGURE 5: CUMULATIVE WELFARE DESTRUCTION
 ```
-![Figure 3: Welfare Loss Breakdown](assets/figure_3_welfare_deadweight_loss_breakdown.png)
+![Figure 5: Welfare Loss Breakdown](assets/figure_5_welfare_deadweight_loss_breakdown.png)
 
-*Figure 3 Note: Time-series accumulation of Harberger deadweight loss and Tullock rent dissipation across the 15-year period.*
+*Figure 5 Note: Time-series accumulation of Harberger deadweight loss and Tullock rent dissipation across the 15-year period.*
 
 ```
-                 FIGURE 4: LONGITUDINAL PRICE DIVERGENCE (2009-2023)
+                 FIGURE 6: LONGITUDINAL PRICE DIVERGENCE (2009-2023)
 ```
-![Figure 4: Longitudinal Price Divergence](assets/figure_4_longitudinal_price_divergence.png)
+![Figure 6: Longitudinal Price Divergence](assets/figure_6_longitudinal_price_divergence.png)
 
-*Figure 4 Note: Trajectory of actual prices versus the By-Right competitive counterfactual across Madrid, Barcelona, Ibiza, Málaga, Valencia, and Zaragoza. The red shaded zone illustrates the expanding regulatory scarcity tax wedge.*
+*Figure 6 Note: Trajectory of actual prices versus the By-Right competitive counterfactual across Madrid, Barcelona, Ibiza, Málaga, Valencia, and Zaragoza. The red shaded zone illustrates the expanding regulatory scarcity tax wedge.*
 
 ---
 
@@ -192,11 +192,11 @@ To test policy interventions without assuming uniform municipal behavior, we exe
 3. Scenario 3 (Comprehensive By-Right Reform): Full property rights transition combining 2.5-month permitting, buildability by default, and structural supply elasticity expansion (epsilon_s >= 1.20).
 
 ```
-               FIGURE 6: MONTE CARLO POLICY SIMULATION (10,000 RUNS)
+               FIGURE 7: MONTE CARLO POLICY SIMULATION (10,000 RUNS)
 ```
-![Figure 6: Monte Carlo Simulation](assets/figure_6_monte_carlo_policy_simulation.png)
+![Figure 7: Monte Carlo Simulation](assets/figure_7_monte_carlo_policy_simulation.png)
 
-*Figure 6 Note: Multi-dimensional stochastic distributions: (A) Price Relief, (B) Effort Ratio compression from 5.51y to 3.59y (within Banco de España green threshold), (C) Alleviation of urban overcrowding from 8.9% to 5.7%, and (D) 90% closure of the structural supply gap.*
+*Figure 7 Note: Multi-dimensional stochastic distributions: (A) Price Relief, (B) Effort Ratio compression from 5.51y to 3.59y (within Banco de España green threshold), (C) Alleviation of urban overcrowding from 8.9% to 5.7%, and (D) 90% closure of the structural supply gap.*
 
 ### Simulation Summary
 
@@ -223,28 +223,26 @@ To test policy interventions without assuming uniform municipal behavior, we exe
 ```text
 Spanish-urban-zoning-burden-analysis/
 ├── assets/                                   # Publication-grade figures (300 DPI, unified palette)
-│   ├── figure_1_panel_regression_coefficients.png
-│   ├── figure_2_supply_elasticity_by_tier.png
-│   ├── figure_3_welfare_deadweight_loss_breakdown.png
-│   ├── figure_4_longitudinal_price_divergence.png
-│   ├── figure_5_scarcity_matrix_heatmap.png
-│   ├── figure_6_monte_carlo_policy_simulation.png
-│   └── figure_7_european_benchmark_paradox.png
+│   ├── figure_1_european_benchmark_paradox.png
+│   ├── figure_2_panel_regression_coefficients.png
+│   ├── figure_3_scarcity_matrix_heatmap.png
+│   ├── figure_4_supply_elasticity_by_tier.png
+│   ├── figure_5_welfare_deadweight_loss_breakdown.png
+│   ├── figure_6_longitudinal_price_divergence.png
+│   └── figure_7_monte_carlo_policy_simulation.png
 ├── data/
 │   └── spanish_municipalities_panel.csv      # Calibrated 15-year panel dataset (N=780)
-├── docs/
-│   ├── context.md                            # High-level research context
-│   └── memory.md                             # Agent continuous memory & lessons learned
 ├── src/
 │   ├── data_simulation.py                    # Calibrated DGP & data engineering module
 │   ├── econometric_models.py                 # Linearmodels TWFE, elasticity, and welfare models
 │   ├── monte_carlo_policy.py                 # 10,000-run Monte Carlo policy simulation engine
-│   ├── visualization.py                      # Matplotlib publication visual pipeline (Figures 1-5)
-│   ├── european_benchmark.py                 # Clean European benchmark visualizer (Figure 7)
+│   ├── visualization.py                      # Matplotlib publication visual pipeline (Figures 2-6)
+│   ├── european_benchmark.py                 # Clean European benchmark visualizer (Figure 1)
 │   └── build_notebook.py                     # Automated notebook generation script
 ├── analysis_report.ipynb                     # Master Jupyter Notebook with pre-executed results
 ├── SYSTEM_NOTES.md                           # Continuous scratchpad with raw metrics & tables
 ├── INFORME_EJECUTIVO.md                      # Executive research memo (Spanish)
+├── README_ES.md                              # Spanish research study & portfolio presentation
 └── README.md                                 # Master research study & portfolio presentation
 ```
 

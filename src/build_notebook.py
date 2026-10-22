@@ -28,7 +28,7 @@ def build_analysis_notebook(output_path: str = "analysis_report.ipynb"):
 ## An Econometric Analysis of Discretionary Land-Use Regulation in Spain
 
 **Research Director & Quantitative Economics Portfolio**  
-**Dataset:** 52 Municipalities × 15-Year Longitudinal Panel (2009–2023) | $N = 780$  
+**Dataset:** 52 Municipalities × 15-Year Longitudinal Panel (2009-2023) | $N = 780$  
 **Methodology:** Two-Way Fixed Effects (TWFE), Clustered Standard Errors, Supply Elasticity ($\epsilon_s$) Estimation, Harberger Deadweight Loss ($DWL$) & Tullock Rent Dissipation Modeling.
 
 ---
@@ -45,6 +45,13 @@ This legal structure grants local municipal governments an absolute monopoly ove
 In this research report, we formulate and estimate an empirical econometric model comparing two institutional regimes:
 - **Regime 1: Discretionary Municipal Monopoly (Status Quo PGOU)**
 - **Regime 2: By-Right Liberalized Baseline (Counterfactual)**, where all non-protected land is developable by default, permits are issued via 2.5-month administrative verification, and supply is elastic.
+"""))
+
+    # Section 0: European Benchmark & Spatial Paradox
+    cells.append(nbf.v4.new_markdown_cell("""### 0. The European Spatial Paradox: GEOSTAT 1 km² & Housing Deficit
+Spain features the lowest inhabited land share in the EU (13%), yet the highest effective residential density in inhabited cells (737 inh/km²)."""))
+
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_1_european_benchmark_paradox.png"))
 """))
 
     # Imports & Setup
@@ -112,11 +119,18 @@ print(format_regression_table(reg_results))
     cells.append(nbf.v4.new_markdown_cell("""### 4. Marginal Effects Visualization
 Forest plot of Two-Way Fixed Effects estimates with 95% confidence intervals."""))
 
-    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_1_panel_regression_coefficients.png"))
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_2_panel_regression_coefficients.png"))
+"""))
+
+    # Scarcity Matrix
+    cells.append(nbf.v4.new_markdown_cell("""### 5. Institutional Sclerosis Matrix
+Cross-sectional distribution of licensing backlogs versus reclassification premiums across Spanish municipalities (2023)."""))
+
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_3_scarcity_matrix_heatmap.png"))
 """))
 
     # Supply Elasticity Estimation
-    cells.append(nbf.v4.new_markdown_cell("""### 5. Housing Supply Elasticity: Discretionary PGOU vs. By-Right
+    cells.append(nbf.v4.new_markdown_cell("""### 6. Housing Supply Elasticity: Discretionary PGOU vs. By-Right
 We estimate the price elasticity of housing supply ($\\epsilon_s$) from the structural relationship:
 
 $$\\ln(\\text{Starts}_{it}) = \\alpha_i + \\lambda_t + \\epsilon_s \\ln(P_{it}) + \\mathbf{X}_{it}'\\boldsymbol{\\gamma} + u_{it}$$
@@ -133,23 +147,16 @@ tier_df = pd.DataFrame(elasticity_res["tier_elasticities"]).T
 tier_df[["pgou_elasticity", "byright_elasticity", "elasticity_multiplier"]]
 """))
 
-    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_2_supply_elasticity_by_tier.png"))
-"""))
-
-    # Longitudinal Price Trajectories
-    cells.append(nbf.v4.new_markdown_cell("""### 6. Longitudinal Price Divergence: The Regulatory Zoning Tax Wedge
-Evolution of actual prices vs. By-Right counterfactual prices across key Spanish urban centers (2009–2023)."""))
-
-    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_4_longitudinal_price_divergence.png"))
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_4_supply_elasticity_by_tier.png"))
 """))
 
     # Welfare & Rent Seeking Quantification
     cells.append(nbf.v4.new_markdown_cell("""### 7. Welfare Economics & Tullock Rent Dissipation
 We quantify the microeconomic losses created by municipal zoning cartels:
 1. **Harberger Deadweight Loss ($DWL$):** Net social surplus destroyed by unrealized trades due to artificial housing rationing:
-   $$DWL = \\frac{1}{2} (P_{PGOU} - P_{ByRight}) \\times (Q_{ByRight} - Q_{PGOU}) \\times \\overline{\\text{sqm}}$$
+   $$DWL = \\frac{1}{2} (P_{PGOU} - P_{ByRight}) \\times (Q_{ByRight} - Q_{PGOU}) \\times S$$
 2. **Tullock Rent Dissipation:** Wealth transferred from citizens to bureaucratic overhead, carrying costs, and land speculation:
-   $$\\text{Transfer} = (P_{PGOU} - P_{ByRight}) \\times Q_{PGOU} \\times \\overline{\\text{sqm}}$$"""))
+   $$\\text{Transfer} = (P_{PGOU} - P_{ByRight}) \\times Q_{PGOU} \\times S$$"""))
 
     cells.append(nbf.v4.new_code_cell("""welfare = econ.quantify_welfare_and_rent_seeking()
 print(f"Cumulative Deadweight Loss (2009-2023):   €{welfare['cumulative_deadweight_loss_billions']:.2f} Billion")
@@ -159,14 +166,14 @@ print(f"Annual Economic Cost:                     €{welfare['annual_total_soci
 print(f"Per Capita Cumulative Burden:             €{welfare['cumulative_burden_per_capita_eur']:,.2f} per resident")
 """))
 
-    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_3_welfare_deadweight_loss_breakdown.png"))
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_5_welfare_deadweight_loss_breakdown.png"))
 """))
 
-    # Scarcity Matrix
-    cells.append(nbf.v4.new_markdown_cell("""### 8. Institutional Sclerosis Matrix
-Cross-sectional distribution of licensing backlogs versus reclassification premiums across Spanish municipalities (2023)."""))
+    # Longitudinal Price Trajectories
+    cells.append(nbf.v4.new_markdown_cell("""### 8. Longitudinal Price Divergence: The Regulatory Zoning Tax Wedge
+Evolution of actual prices vs. By-Right counterfactual prices across key Spanish urban centers (2009-2023)."""))
 
-    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_5_scarcity_matrix_heatmap.png"))
+    cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_6_longitudinal_price_divergence.png"))
 """))
 
     # Monte Carlo Policy Simulation
@@ -194,7 +201,7 @@ for s_key in ["s1", "s2", "s3"]:
     print(f"  Overcrowding Rate (Median):           {np.median(v['overcrowd']):.2f}%")
     print(f"  Remaining Annual Deficit (Median):    {np.median(v['deficit']):,.0f} units")
 
-display(Image(filename="assets/figure_6_monte_carlo_policy_simulation.png"))
+display(Image(filename="assets/figure_7_monte_carlo_policy_simulation.png"))
 """))
 
     # Key Economic Conclusions
