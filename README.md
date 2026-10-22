@@ -1,5 +1,6 @@
 # Zoning Monopoly, Rent-Seeking, and Artificial Scarcity: An Econometric Analysis of Discretionary Land-Use Regulation in Spain
 
+[![Versión en Español](https://img.shields.io/badge/Idioma-Versi%C3%B3n%20en%20Espa%C3%B1ol-yellow.svg)](README_ES.md)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Econometrics: Panel TWFE](https://img.shields.io/badge/Econometrics-Two--Way%20Fixed%20Effects-emerald.svg)](https://bashtage.github.io/linearmodels/)
 [![Public Choice](https://img.shields.io/badge/Public%20Choice-Tullock%20Rent%20Dissipation-crimson.svg)](https://en.wikipedia.org/wiki/Rent-seeking)
