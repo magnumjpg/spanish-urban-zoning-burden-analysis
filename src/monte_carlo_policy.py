@@ -117,7 +117,7 @@ class MonteCarloPolicySimulator:
         return {
             "s1": {
                 "name": "Scenario 1: Fast-Track Licensing (3 Months Max)",
-                "color": "#0284C7",  # Deep Sky Blue
+                "color": "#1E3A8A",  # Deep Navy
                 "price_drop": price_drop_s1,
                 "effort": effort_s1,
                 "overcrowd": overcrowd_s1,
@@ -133,7 +133,7 @@ class MonteCarloPolicySimulator:
             },
             "s3": {
                 "name": "Scenario 3: Comprehensive By-Right System (Full Reform)",
-                "color": "#059669",  # Emerald Green
+                "color": "#0D9488",  # Deep Teal
                 "price_drop": price_drop_s3,
                 "effort": effort_s3,
                 "overcrowd": overcrowd_s3,
@@ -183,8 +183,8 @@ class MonteCarloPolicySimulator:
         # Panel B: Housing Effort Ratio (Years of Household Income)
         # -------------------------------------------------------------
         ax = axes[1]
-        ax.axvline(bm["current_effort"], color="#DC2626", linestyle=":", linewidth=2.0, label=f"Current Status Quo ({bm['current_effort']:.1f} years)")
-        ax.axvspan(3.8, 4.8, color="#10B981", alpha=0.15, label="Banco de España Sustainable Benchmark (4-4.8y)")
+        ax.axvline(bm["current_effort"], color="#BE123C", linestyle=":", linewidth=2.0, label=f"Current Status Quo ({bm['current_effort']:.1f} years)")
+        ax.axvspan(3.8, 4.8, color="#0D9488", alpha=0.15, label="Banco de España Sustainable Benchmark (4-4.8y)")
 
         for s_key in scenarios:
             s = results[s_key]
@@ -209,8 +209,8 @@ class MonteCarloPolicySimulator:
         # Panel C: Overcrowding Rate (% Population in Overcrowded Homes)
         # -------------------------------------------------------------
         ax = axes[2]
-        ax.axvline(bm["current_overcrowd"], color="#DC2626", linestyle=":", linewidth=2.0, label=f"Current Metros Overcrowding ({bm['current_overcrowd']:.1f}%)")
-        ax.axvspan(4.0, 7.5, color="#059669", alpha=0.15, label="EU-15 Urban Average (<7.5%)")
+        ax.axvline(bm["current_overcrowd"], color="#BE123C", linestyle=":", linewidth=2.0, label=f"Current Metros Overcrowding ({bm['current_overcrowd']:.1f}%)")
+        ax.axvspan(4.0, 7.5, color="#0D9488", alpha=0.15, label="EU-15 Urban Average (<7.5%)")
 
         for s_key in scenarios:
             s = results[s_key]
@@ -235,7 +235,7 @@ class MonteCarloPolicySimulator:
         # Panel D: Structural Housing Deficit (Banco de España Net Gap)
         # -------------------------------------------------------------
         ax = axes[3]
-        ax.axvline(bm["current_deficit"] / 1000.0, color="#DC2626", linestyle=":", linewidth=2.0, label=f"Current Panel Deficit ({bm['current_deficit']/1000.0:.1f}k homes)")
+        ax.axvline(bm["current_deficit"] / 1000.0, color="#BE123C", linestyle=":", linewidth=2.0, label=f"Current Panel Deficit ({bm['current_deficit']/1000.0:.1f}k homes)")
 
         for s_key in scenarios:
             s = results[s_key]

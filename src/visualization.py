@@ -120,8 +120,8 @@ class EconometricVisualizer:
         fig, ax = plt.subplots(figsize=(10, 5.5))
         y_pos = np.arange(len(df_plot))
 
-        # Color positive significant vs non-significant
-        colors = ["#0284C7" if row["pval"] < 0.05 and row["coef"] > 0 else "#94A3B8" for _, row in df_plot.iterrows()]
+        # Color positive significant vs non-significant in unified palette
+        colors = ["#BE123C" if row["pval"] < 0.05 and row["coef"] > 0 else "#64748B" for _, row in df_plot.iterrows()]
 
         # Plot 95% CIs
         for i, (_, row) in enumerate(df_plot.iterrows()):
@@ -133,7 +133,7 @@ class EconometricVisualizer:
             txt = f"{row['coef']:+.3f}{star} (p={row['pval']:.3f})"
             ax.text(row["ci_high"] + 0.02, i, txt, va="center", fontsize=9, color="#1E293B", weight="semibold")
 
-        ax.axvline(0, color="#EF4444", linestyle="--", linewidth=1.2, alpha=0.85)
+        ax.axvline(0, color="#64748B", linestyle="--", linewidth=1.2, alpha=0.85)
         ax.set_yticks(y_pos)
         ax.set_yticklabels(df_plot["label"], fontsize=10, weight="medium")
         ax.set_xlabel("Estimated Coefficient on Log Housing Price (€/sqm) [95% CI]", fontsize=11, labelpad=8)
@@ -166,8 +166,8 @@ class EconometricVisualizer:
 
         fig, ax = plt.subplots(figsize=(9, 5.5))
 
-        rects1 = ax.bar(x - width/2, pgou_vals, width, label="Discretionary PGOU (Status Quo)", color="#F43F5E", edgecolor="#9F1239", alpha=0.9)
-        rects2 = ax.bar(x + width/2, byright_vals, width, label="By-Right Baseline (Counterfactual)", color="#0EA5E9", edgecolor="#0369A1", alpha=0.9)
+        rects1 = ax.bar(x - width/2, pgou_vals, width, label="Discretionary PGOU (Status Quo)", color="#BE123C", edgecolor="#881337", alpha=0.9)
+        rects2 = ax.bar(x + width/2, byright_vals, width, label="By-Right Baseline (Counterfactual)", color="#0D9488", edgecolor="#115E59", alpha=0.9)
 
         # Value inside or above bars
         for i, t in enumerate(tiers):
@@ -176,17 +176,17 @@ class EconometricVisualizer:
             val_pgou = pgou_vals[i]
 
             # PGOU value above bar
-            ax.text(x[i] - width/2, val_pgou + 0.03, f"ε={val_pgou:.2f}", ha="center", va="bottom", fontsize=9, color="#9F1239", weight="bold")
+            ax.text(x[i] - width/2, val_pgou + 0.03, f"ε={val_pgou:.2f}", ha="center", va="bottom", fontsize=9, color="#881337", weight="bold")
 
-            # By-Right value: if bar is too small (< 0.20), put text ABOVE bar in dark blue, not inside in white
+            # By-Right value: if bar is too small (< 0.20), put text ABOVE bar in dark teal, not inside in white
             if val_br < 0.20:
-                ax.text(x[i] + width/2, val_br + 0.03, f"ε={val_br:.2f}", ha="center", va="bottom", fontsize=9, color="#0369A1", weight="bold")
+                ax.text(x[i] + width/2, val_br + 0.03, f"ε={val_br:.2f}", ha="center", va="bottom", fontsize=9, color="#0D9488", weight="bold")
             else:
                 ax.text(x[i] + width/2, val_br / 2, f"ε={val_br:.2f}", ha="center", va="center", fontsize=9, color="#FFFFFF", weight="bold")
 
             # Multiplier labels above bars
             if mult > 1.2:
-                ax.text(x[i] + width/2, val_br + 0.07, f"{mult:.1f}x", ha="center", va="bottom", fontsize=10, weight="bold", color="#0369A1")
+                ax.text(x[i] + width/2, val_br + 0.07, f"{mult:.1f}x", ha="center", va="bottom", fontsize=10, weight="bold", color="#0D9488")
 
         ax.set_ylabel("Housing Supply Elasticity (ε_s = %ΔStarts / %ΔPrice)", fontsize=11, labelpad=8)
         ax.set_title("Figure 2: Housing Supply Elasticity: Discretionary Zoning vs. By-Right Liberalization", fontsize=13, pad=12)
@@ -226,10 +226,10 @@ class EconometricVisualizer:
             df_annual["annual_dwl_b"],
             df_annual["annual_transfer_b"],
             labels=["Harberger Deadweight Loss (Unrealized Trades)", "Tullock Rent Dissipation (Wealth Transfer)"],
-            colors=["#F59E0B", "#EF4444"],
+            colors=["#D97706", "#BE123C"],
             alpha=0.85,
         )
-        ax1.plot(df_annual["year"], df_annual["total_cost_b"], color="#991B1B", lw=2.2, label="Total Social Cost")
+        ax1.plot(df_annual["year"], df_annual["total_cost_b"], color="#881337", lw=2.2, label="Total Social Cost")
 
         ax1.set_xlabel("Year", fontsize=11)
         ax1.set_ylabel("Annual Economic Burden (€ Billions)", fontsize=11)
@@ -245,7 +245,7 @@ class EconometricVisualizer:
         wedges, texts, autotexts = ax2.pie(
             [total_dwl, total_transfer],
             labels=["Deadweight Loss\n(€29.13B)", "Tullock Rent Transfer\n(€44.46B)"],
-            colors=["#F59E0B", "#EF4444"],
+            colors=["#D97706", "#BE123C"],
             autopct="%1.1f%%",
             startangle=140,
             wedgeprops=dict(width=0.45, edgecolor="white", linewidth=2),
@@ -278,7 +278,7 @@ class EconometricVisualizer:
             ax = axes[i]
             m_df = df_sub[df_sub["municipality_name"] == muni_name].sort_values("year")
 
-            ax.plot(m_df["year"], m_df["housing_price_sqm"], color="#E11D48", lw=2.4, label="Status Quo (PGOU)", marker="o", markersize=3.5)
+            ax.plot(m_df["year"], m_df["housing_price_sqm"], color="#BE123C", lw=2.4, label="Status Quo (PGOU)", marker="o", markersize=3.5)
             ax.plot(m_df["year"], m_df["by_right_price_sqm"], color="#0D9488", lw=2.4, linestyle="--", label="By-Right Counterfactual", marker="s", markersize=3.5)
 
             # Fill wedge
@@ -286,8 +286,8 @@ class EconometricVisualizer:
                 m_df["year"],
                 m_df["by_right_price_sqm"],
                 m_df["housing_price_sqm"],
-                color="#F43F5E",
-                alpha=0.18,
+                color="#BE123C",
+                alpha=0.15,
                 label="Regulatory Scarcity Tax Wedge",
             )
 
@@ -300,7 +300,7 @@ class EconometricVisualizer:
             ax.text(
                 2023.2, (p_end_pgou + p_end_br) / 2,
                 f"Δ€{gap:.0f}\n(+{pct_gap:.0f}%)",
-                fontsize=8, weight="bold", color="#BE123C", va="center"
+                fontsize=8, weight="bold", color="#881337", va="center"
             )
 
             ax.set_title(m_name := muni_name, fontsize=11, weight="bold")
@@ -331,10 +331,10 @@ class EconometricVisualizer:
         fig, ax = plt.subplots(figsize=(10, 6.5))
 
         tier_palette = {
-            "Tier 1 - Metro": "#8B5CF6",
-            "Tier 2 - Coastal/Tourist": "#F43F5E",
-            "Tier 3 - Regional Capital": "#0EA5E9",
-            "Tier 4 - Interior": "#10B981",
+            "Tier 1 - Metro": "#BE123C",
+            "Tier 2 - Coastal/Tourist": "#D97706",
+            "Tier 3 - Regional Capital": "#1E3A8A",
+            "Tier 4 - Interior": "#0D9488",
         }
 
         for tier, color in tier_palette.items():

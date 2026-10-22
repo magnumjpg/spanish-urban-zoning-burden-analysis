@@ -55,7 +55,7 @@ def plot_figure_7_clean(output_path: str = "assets/figure_7_european_benchmark_p
     ax = axes[0]
     countries_a = ["España", "Portugal", "Italia", "Alemania", "Francia", "Países Bajos"]
     cells_pct = [13.0, 44.5, 57.2, 59.9, 67.8, 78.4]
-    colors_a = ["#E11D48" if c == "España" else "#0284C7" for c in countries_a]
+    colors_a = ["#BE123C" if c == "España" else "#1E3A8A" for c in countries_a]
 
     bars_a = ax.barh(countries_a, cells_pct, color=colors_a, height=0.55, edgecolor="#0F172A", linewidth=0.6)
     for bar in bars_a:
@@ -86,7 +86,7 @@ def plot_figure_7_clean(output_path: str = "assets/figure_7_european_benchmark_p
     ax = axes[2]
     countries_c = ["Portugal", "Países Bajos", "España", "Italia", "Francia", "Alemania"]
     deficit_pct = [-7.0, -4.7, -3.9, -1.5, -0.02, 0.5]
-    colors_c = ["#E11D48" if c == "España" else "#F59E0B" if v < 0 else "#059669" for c, v in zip(countries_c, deficit_pct)]
+    colors_c = ["#BE123C" if c == "España" else "#D97706" if v < 0 else "#0D9488" for c, v in zip(countries_c, deficit_pct)]
 
     bars_c = ax.bar(countries_c, deficit_pct, color=colors_c, width=0.55, edgecolor="#0F172A", linewidth=0.6)
     for bar in bars_c:
@@ -109,7 +109,7 @@ def plot_figure_7_clean(output_path: str = "assets/figure_7_european_benchmark_p
     ax = axes[3]
     categories_d = ["Promedio Todos\nlos Hogares", "Inquilinos\nTotal Nacional", "Jóvenes en\nAlquiler", "Inquilinos Madrid,\nBCN y Málaga"]
     effort_years = [4.0, 6.8, 7.5, 10.0]
-    colors_d = ["#059669", "#0284C7", "#F59E0B", "#E11D48"]
+    colors_d = ["#0D9488", "#1E3A8A", "#D97706", "#BE123C"]
 
     bars_d = ax.bar(categories_d, effort_years, color=colors_d, width=0.55, edgecolor="#0F172A", linewidth=0.6)
     for bar in bars_d:

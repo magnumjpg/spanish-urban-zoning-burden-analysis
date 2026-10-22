@@ -104,7 +104,7 @@ $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{RetrasoLicencias}_{it} + \b
 ### Resultados Clave:
 1. **El Impuesto Burocrático de las Licencias:** $\beta_1 = +0.0153^{***}$ ($p < 0.001$, errores estándar clúster = 0.0025). **Cada mes adicional de retraso municipal en otorgar licencias encarece el precio de la vivienda un +1,53% ceteris paribus**. En Madrid o Barcelona (18–22 meses de espera), la burocracia municipal explica entre el **+22% y el +26% del coste final de adquisición**.
 2. **Racionamiento Artificial de Suelo:** $\beta_2 = +0.2686^{**}$ ($p = 0.0056$). Un aumento del 10% en el ratio de suelo retenido como rústico común genera una subida del **+2,69% en el precio por metro cuadrado**.
-3. **Colapso de la Elasticidad de Oferta ($\epsilon_s$):** En las grandes áreas metropolitanas, la elasticidad-precio bajo el PGOU está encorsetada en **$\hat{\epsilon}_s^{PGOU} = 0.31$** (en línea con el 0,45 estimado por el Banco de España). Bajo un régimen liberalizado *By-Right*, la elasticidad escala hasta **$\hat{\epsilon}_s^{ByRight} = 1.20$** (multiplicador de 3,8x), permitiendo absorber la demanda sin tensionar precios.
+3. **Colapso de la Elasticidad de Oferta ($\epsilon_s$):** En las grandes áreas metropolitanas, la elasticidad-precio bajo el PGOU está encorsetada en $\epsilon_s = 0.31$ (en línea con el 0,45 estimado por el Banco de España). Bajo un régimen liberalizado By-Right, la elasticidad escala hasta $\epsilon_s = 1.20$ (multiplicador de 3,8x), permitiendo absorber la demanda sin tensionar precios.
 
 ![Figura 1: Coeficientes de Regresión TWFE](assets/figure_1_panel_regression_coefficients.png)
 ![Figura 2: Elasticidad de Oferta por Estratos](assets/figure_2_supply_elasticity_by_tier.png)
@@ -174,10 +174,10 @@ rechazando con un 95% de confianza la hipótesis nula de igual elasticidad.
 
 ### A.3. Fórmulas de Bienestar Económico
 * **Pérdida Irrecuperable de Eficiencia (Harberger Triangle):**
-  $$DWL_{it} = \frac{1}{2} \cdot (P_{it}^{PGOU} - P_{it}^{ByRight}) \cdot (Q_{it}^{ByRight} - Q_{it}^{PGOU}) \cdot \overline{\text{Superficie}}$$
+  $$DWL_{it} = \frac{1}{2} \cdot (P_{it}^{\text{PGOU}} - P_{it}^{\text{ByRight}}) \cdot (Q_{it}^{\text{ByRight}} - Q_{it}^{\text{PGOU}}) \cdot S$$
 * **Disipación de Rentas de Tullock (Wealth Transfer):**
-  $$\text{Transfer}_{it} = (P_{it}^{PGOU} - P_{it}^{ByRight}) \cdot Q_{it}^{PGOU} \cdot \overline{\text{Superficie}}$$
-  donde $\overline{\text{Superficie}} = 95 \text{ m}^2$ corresponde al tamaño medio de la vivienda familiar según el censo del INE.
+  $$\text{Transfer}_{it} = (P_{it}^{\text{PGOU}} - P_{it}^{\text{ByRight}}) \cdot Q_{it}^{\text{PGOU}} \cdot S$$
+  donde $S = 95\text{ m}^2$ representa la superficie media construida de la vivienda familiar según el censo del INE.
 
 ### A.4. Parámetros de la Simulación Estocástica de Monte Carlo
 En cada iteración $k \in \{1, \dots, 10.000\}$:
