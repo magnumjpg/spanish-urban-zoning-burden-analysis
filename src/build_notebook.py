@@ -169,8 +169,30 @@ Cross-sectional distribution of licensing backlogs versus reclassification premi
     cells.append(nbf.v4.new_code_cell("""display(Image(filename="assets/figure_5_scarcity_matrix_heatmap.png"))
 """))
 
+    # Monte Carlo Policy Simulation
+    cells.append(nbf.v4.new_markdown_cell("""### 9. Monte Carlo Policy Simulation (10,000 Iterations)
+We simulate the empirical distribution of economic relief under 3 concrete policy proposals:
+1. **Scenario 1 (Fast-Track Licensing):** Mandatory 3-month positive silence.
+2. **Scenario 2 (Peri-Urban Land Unfreezing):** Reducing frozen rustic land by 60%.
+3. **Scenario 3 (Comprehensive By-Right Reform):** Both measures combined with structural supply elasticity expansion."""))
+
+    cells.append(nbf.v4.new_code_cell("""from monte_carlo_policy import MonteCarloPolicySimulator
+
+mc_sim = MonteCarloPolicySimulator("data/spanish_municipalities_panel.csv", n_sims=10000, seed=42)
+mc_results = mc_sim.run_simulations()
+
+for k, v in mc_results.items():
+    print(f"\\n{v['name']}:")
+    print(f"  Price Reduction:     -{v['median_drop']:.2f}% (95% CI: [{v['ci_95_drop'][0]:.2f}%, {v['ci_95_drop'][1]:.2f}%])")
+    print(f"  Annual Savings:      €{v['median_savings']:.2f} Billion/year (95% CI: [€{v['ci_95_savings'][0]:.2f}B, €{v['ci_95_savings'][1]:.2f}B])")
+    if 'median_units' in v:
+        print(f"  Unlocked New Homes:  +{v['median_units']:,.0f} units/year")
+
+display(Image(filename="assets/figure_6_monte_carlo_policy_simulation.png"))
+"""))
+
     # Key Economic Conclusions
-    cells.append(nbf.v4.new_markdown_cell("""### 9. Key Econometric & Public Choice Conclusions
+    cells.append(nbf.v4.new_markdown_cell("""### 10. Key Econometric & Public Choice Conclusions
 1. **The Bureaucratic Delay Tax:** Municipal licensing backlogs exert a causal +1.53% increase on housing prices per additional month ($p < 0.001$). In major metros where backlogs reach 18-24 months, bureaucratic friction accounts for up to 26% of housing costs.
 2. **Artificial Scarcity & Rent-Seeking:** The default ban on building (*suelo no urbanizable por defecto*) generates an artificial scarcity multiplier of **24.2x** upon political reclassification. This rent attracts intense lobbying and judicial litigation, creating an annual social cost of **€4.91 Billion**.
 3. **The By-Right Institutional Solution:** Introducing a By-Right regime (presumption of buildability except environmental preserves) increases housing supply elasticity by **3.8x to 6.4x** in high-pressure markets, eliminating the deadweight loss and making housing accessible without fiscal expenditure.

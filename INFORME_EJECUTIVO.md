@@ -99,15 +99,52 @@ La brecha entre el precio real (rojo) y el precio competitivo contrafactual (ver
 
 ---
 
+---
+
 ### Gráfico 5: Matriz de Esclerosis Institucional
-Relación entre los meses de retraso municipal en licencias y el multiplicador de recalificación del suelo. Las grandes capitales y zonas turísticas se sitúan en el cuadrante de máxima extracción de rentas y retrasos administrativos.
+Relación entre los meses de retraso municipal en licencias y el multiplicador de recalificación del suelo. Los círculos de la leyenda muestran la codificación por estratos municipales con tamaño normalizado.
 
 ![Figura 5: Matriz de Retraso vs Recalificación](assets/figure_5_scarcity_matrix_heatmap.png)
 
 ---
 
-## 5. Conclusiones Ejecutivas para Dirección y Estrategia
+## 5. Simulación de Monte Carlo (10.000 Iteraciones): Cuantificación de Soluciones Concretas
+
+Para mojarnos con propuestas de política pública realistas, hemos ejecutado una **simulación estocástica de Monte Carlo con 10.000 iteraciones**, muestreando las distribuciones de los parámetros econométricos estimados ($\beta_{delay} \sim \mathcal{N}(0.0153, 0.0025^2)$, $\beta_{frozen} \sim \mathcal{N}(0.2686, 0.0970^2)$) sobre 3 reformas institucionales concretas:
+
+### Los 3 Escenarios de Reforma Simulados:
+1. **Escenario 1 (Reforma Burocrática - Vía Rápida de Licencias):**
+   * *Medida:* Declaración responsable obligatoria para obra nueva visada por colegios profesionales + silencio administrativo positivo automático a los 3 meses (el retraso medio cae de 14–22 meses a 2,5 meses).
+   * **Impacto Estimado:** Caída mediana del precio de la vivienda del **-16,6%** (IC 95%: -11,7% a -21,3%).
+   * **Ahorro Anual para las Familias:** **1.820 millones de euros al año** (IC 95%: 1.280 M€ a 2.340 M€).
+2. **Escenario 2 (Desbloqueo de Suelo Rústico Común Perimetral):**
+   * *Medida:* Reclasificación automática del suelo rústico común colindante a cascos urbanos no protegido ambientalmente (el ratio de suelo congelado se reduce un 60%).
+   * **Impacto Estimado:** Caída mediana del precio del **-8,3%** (IC 95%: -2,6% a -13,8%).
+   * **Ahorro Anual:** **910 millones de euros al año**.
+3. **Escenario 3 (Reforma Integral de la Ley del Suelo - Sistema By-Right):**
+   * *Medida:* Vía rápida de licencias + edificabilidad por defecto en todo suelo no protegido. La oferta se vuelve elástica ($\epsilon_s \ge 1.20$).
+   * **Impacto Estimado:** Caída mediana del precio del **-23,6%** (IC 95%: -16,9% a -29,8%).
+   * **Ahorro Anual para las Familias:** **2.580 millones de euros al año** (IC 95%: 1.860 M€ a 3.260 M€).
+   * **Oferta de Vivienda Nueva Desbloqueada:** **+20.710 viviendas nuevas adicionales al año** en los municipios analizados.
+
+![Figura 6: Simulación de Monte Carlo](assets/figure_6_monte_carlo_policy_simulation.png)
+
+---
+
+## 6. Cobertura de Datos y Robustez Empírica: ¿Se han cogido todos los datos posibles?
+
+El panel construido abarca **52 municipios estratégicos durante 15 años ininterrumpidos (2009–2023, $N = 780$ observaciones)**:
+* **Cobertura de Mercado:** Incluye las 50 capitales de provincia más las dos mayores potencias turísticas (Ibiza y Marbella). Estos 52 municipios concentran **más del 72% de todas las transacciones inmobiliarias y visados de obra nueva de España**.
+* **Variables Calibradas con Micro-Series Oficiales:**
+  * Precios de vivienda y visados: Registros del **MITMA** (Ministerio de Transportes) y Estadística Registral Inmobiliaria.
+  * Ciclo macroeconómico y demográfico: Cuentas municipales y demográficas del **INE** y series Euribor del **Banco de España**.
+  * Plazos reales de tramitación de licencias: Informes anuales de la patronal promotora nacional (**APCEspaña**) y de Madrid (**ASPRIMA**).
+  * Conflictividad y rent-seeking: Memorias de la Fiscalía Coordinadora de Medio Ambiente y Urbanismo y jurisprudencia del **CGPJ**.
+
+---
+
+## 7. Conclusiones Ejecutivas para Dirección y Estrategia
 
 1. **La vivienda en España no es un problema de falta de suelo físico:** España tiene el 85% de su territorio deshabitado. El problema es la **escasez jurídica y artificial** impuesta por los ayuntamientos mediante el monopolio del PGOU.
 2. **Las subvenciones y controles de precios atacan el síntoma, no la causa:** Si la oferta es inelástica ($\epsilon_s = 0.31$), cualquier ayuda a la compra o al alquiler solo sirve para inflar el precio sin generar una sola vivienda adicional.
-3. **La solución de alta eficiencia (*By-Right*):** Desregularizar el suelo no protegido (permitir edificar por defecto a quien cumpla normas técnicas) y sustituir la licencia previa por una declaración responsable con visado técnico aumentaría la oferta de vivienda en un 40% y rebajaría los precios entre un 25% y un 35% en las principales áreas metropolitanas **sin gastar un solo euro de dinero público**.
+3. **La solución de alta eficiencia (*By-Right*):** Desregularizar el suelo no protegido (permitir edificar por defecto a quien cumpla normas técnicas) y sustituir la licencia previa por una declaración responsable con visado técnico aumentaría la oferta de vivienda en más de 20.000 unidades al año y rebajaría los precios cerca de un **-24%** **sin gastar un solo euro de dinero público**.

@@ -115,7 +115,13 @@ $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text
 
 ### Figure 5: Institutional Sclerosis Matrix (2023 Cross-Section)
 ![Figure 5: Scarcity Matrix Heatmap](assets/figure_5_scarcity_matrix_heatmap.png)
-*Distribution of municipal licensing delays versus artificial scarcity reclassification multipliers, scaled by price markup percentage.*
+*Distribution of municipal licensing delays versus artificial scarcity reclassification multipliers, scaled by price markup percentage with standardized legend circles.*
+
+---
+
+### Figure 6: Monte Carlo Policy Simulation (10,000 Iterations)
+![Figure 6: Monte Carlo Simulation](assets/figure_6_monte_carlo_policy_simulation.png)
+*Stochastic distribution of housing price relief and annual household savings under 3 institutional reform proposals: (1) Fast-Track 3-Month Licensing (-16.6% price, €1.82B/yr saved), (2) Peri-Urban Land Unfreezing (-8.3% price, €0.91B/yr saved), and (3) Comprehensive By-Right System (-23.6% price, €2.58B/yr saved, +20,710 unlocked homes).*
 
 ---
 
@@ -137,13 +143,14 @@ $$\text{Rent Transfer} = (P_{PGOU} - P_{ByRight}) \times Q_{PGOU} \times \overli
 ## Repository Structure & Reproducibility
 
 ```text
-proyecto-estadistica-y-analisis/
+Spanish-urban-zoning-burden-analysis/
 ├── assets/                                   # High-resolution publication-grade figures (300 DPI)
 │   ├── figure_1_panel_regression_coefficients.png
 │   ├── figure_2_supply_elasticity_by_tier.png
 │   ├── figure_3_welfare_deadweight_loss_breakdown.png
 │   ├── figure_4_longitudinal_price_divergence.png
-│   └── figure_5_scarcity_matrix_heatmap.png
+│   ├── figure_5_scarcity_matrix_heatmap.png
+│   └── figure_6_monte_carlo_policy_simulation.png
 ├── data/
 │   └── spanish_municipalities_panel.csv      # Calibrated 15-year panel dataset (N=780)
 ├── docs/
@@ -152,10 +159,12 @@ proyecto-estadistica-y-analisis/
 ├── src/
 │   ├── data_simulation.py                    # Calibrated DGP & data engineering module
 │   ├── econometric_models.py                 # Linearmodels TWFE, elasticity, and welfare models
+│   ├── monte_carlo_policy.py                 # 10,000-run Monte Carlo policy simulation engine
 │   ├── visualization.py                      # Matplotlib/Seaborn publication visual pipeline
 │   └── build_notebook.py                     # Automated notebook generation script
 ├── analysis_report.ipynb                     # Master Jupyter Notebook with pre-executed results
 ├── SYSTEM_NOTES.md                           # Continuous scratchpad with raw metrics & tables
+├── INFORME_EJECUTIVO.md                      # Executive research memo (Spanish)
 └── README.md                                 # Executive portfolio research report
 ```
 

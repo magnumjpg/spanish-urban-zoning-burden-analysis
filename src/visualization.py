@@ -171,16 +171,24 @@ class EconometricVisualizer:
         rects1 = ax.bar(x - width/2, pgou_vals, width, label="Discretionary PGOU (Status Quo)", color="#F43F5E", edgecolor="#9F1239", alpha=0.9)
         rects2 = ax.bar(x + width/2, byright_vals, width, label="By-Right Baseline (Counterfactual)", color="#0EA5E9", edgecolor="#0369A1", alpha=0.9)
 
-        # Multiplier labels above bars
+        # Value inside or above bars
         for i, t in enumerate(tiers):
             mult = tier_data[t]["elasticity_multiplier"]
             val_br = byright_vals[i]
-            if mult > 1.0:
-                ax.text(x[i] + width/2, val_br + 0.05, f"{mult:.1f}x", ha="center", va="bottom", fontsize=10, weight="bold", color="#0369A1")
-            
-            # Value inside or above bars
-            ax.text(x[i] - width/2, pgou_vals[i] + 0.02, f"ε={pgou_vals[i]:.2f}", ha="center", va="bottom", fontsize=8.5, color="#881337", weight="bold")
-            ax.text(x[i] + width/2, val_br / 2, f"ε={val_br:.2f}", ha="center", va="center", fontsize=8.5, color="#FFFFFF", weight="bold")
+            val_pgou = pgou_vals[i]
+
+            # PGOU value above bar
+            ax.text(x[i] - width/2, val_pgou + 0.03, f"ε={val_pgou:.2f}", ha="center", va="bottom", fontsize=9, color="#9F1239", weight="bold")
+
+            # By-Right value: if bar is too small (< 0.20), put text ABOVE bar in dark blue, not inside in white
+            if val_br < 0.20:
+                ax.text(x[i] + width/2, val_br + 0.03, f"ε={val_br:.2f}", ha="center", va="bottom", fontsize=9, color="#0369A1", weight="bold")
+            else:
+                ax.text(x[i] + width/2, val_br / 2, f"ε={val_br:.2f}", ha="center", va="center", fontsize=9, color="#FFFFFF", weight="bold")
+
+            # Multiplier labels above bars
+            if mult > 1.2:
+                ax.text(x[i] + width/2, val_br + 0.07, f"{mult:.1f}x", ha="center", va="bottom", fontsize=10, weight="bold", color="#0369A1")
 
         ax.set_ylabel("Housing Supply Elasticity (ε_s = %ΔStarts / %ΔPrice)", fontsize=11, labelpad=8)
         ax.set_title("Figure 2: Housing Supply Elasticity: Discretionary Zoning vs. By-Right Liberalization", fontsize=13, pad=12)
@@ -347,6 +355,8 @@ class EconometricVisualizer:
                 label=tier,
             )
 
+        from matplotlib.lines import Line2D
+
         # Annotate representative municipalities
         annot_munis = ["Madrid", "Barcelona", "Ibiza", "Marbella", "Palma de Mallorca", "Valencia", "San Sebastián", "Soria", "Badajoz"]
         for _, row in df_2023[df_2023["municipality_name"].isin(annot_munis)].iterrows():
@@ -372,7 +382,15 @@ class EconometricVisualizer:
         ax.set_xlabel("Municipal Licensing Approval Delay (Months)", fontsize=11, labelpad=8)
         ax.set_ylabel("Artificial Scarcity Reclassification Premium (x-fold jump in land value)", fontsize=11, labelpad=8)
         ax.set_title("Figure 5: Institutional Sclerosis Matrix: Licensing Backlog vs. Land Reclassification Premium (2023)", fontsize=13, pad=12)
-        ax.legend(title="Municipal Tier (Bubble size = Price Markup %)", frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=9.5)
+        
+        # Legend with UNIFORM circle sizes purely for color identification
+        legend_handles = [
+            Line2D([0], [0], marker="o", color="w", label=t_name,
+                   markerfacecolor=t_col, markersize=8.5, markeredgecolor="#0F172A", markeredgewidth=0.8)
+            for t_name, t_col in tier_palette.items()
+        ]
+        ax.legend(handles=legend_handles, title="Municipal Tier (Bubble size = Price Markup %)",
+                  frameon=True, facecolor="#FFFFFF", edgecolor="#CBD5E1", fontsize=9.5)
 
         plt.tight_layout()
         output_path = os.path.join(self.output_dir, "figure_5_scarcity_matrix_heatmap.png")
