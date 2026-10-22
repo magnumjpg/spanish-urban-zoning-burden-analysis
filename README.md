@@ -89,6 +89,12 @@ $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text
 
 ## Visualizations & Econometric Diagnostics
 
+### Figure 7: The Spanish Territorial Paradox & European Benchmark (Eurostat / BdE)
+![Figure 7: European Benchmark and Territorial Paradox](assets/figure_7_european_benchmark_paradox.png)
+*Eurostat GEOSTAT 1km² population grid and EU-SILC indicators: Spain has 87.0% uninhabited territory but the highest effective residential density in the EU (737 hab/km²), severe market-rent cost overburden (38.0%), and delayed youth emancipation (30.3 years).*
+
+---
+
 ### Figure 1: Institutional Determinants of Housing Prices (Forest Plot)
 ![Figure 1: Panel Regression Forest Plot](assets/figure_1_panel_regression_coefficients.png)
 *Marginal effects with 95% confidence intervals from the Two-Way Fixed Effects model. Every additional month of licensing delay imposes a +1.53% price penalty ($t = 6.12$).*
@@ -115,13 +121,13 @@ $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text
 
 ### Figure 5: Institutional Sclerosis Matrix (2023 Cross-Section)
 ![Figure 5: Scarcity Matrix Heatmap](assets/figure_5_scarcity_matrix_heatmap.png)
-*Distribution of municipal licensing delays versus artificial scarcity reclassification multipliers, scaled by price markup percentage with standardized legend circles.*
+*Distribution of municipal licensing delays versus artificial scarcity reclassification multipliers, scaled by price markup percentage with standardized legend markers.*
 
 ---
 
-### Figure 6: Monte Carlo Policy Simulation (10,000 Iterations)
+### Figure 6: Monte Carlo Policy Simulation (10,000 Iterations - 4 Dimensions)
 ![Figure 6: Monte Carlo Simulation](assets/figure_6_monte_carlo_policy_simulation.png)
-*Stochastic distribution of housing price relief and annual household savings under 3 institutional reform proposals: (1) Fast-Track 3-Month Licensing (-16.6% price, €1.82B/yr saved), (2) Peri-Urban Land Unfreezing (-8.3% price, €0.91B/yr saved), and (3) Comprehensive By-Right System (-23.6% price, €2.58B/yr saved, +20,710 unlocked homes).*
+*Stochastic multi-dimensional distributions across 3 institutional reforms: (A) Price Relief with orographic skewness (-16.9% to -38.5%), (B) Effort Ratio compression from 5.51y to 3.59y (Banco de España green threshold), (C) Alleviation of urban overcrowding from 8.9% to 5.7%, and (D) 90% closure of the structural housing deficit.*
 
 ---
 
@@ -201,9 +207,13 @@ Spanish-urban-zoning-burden-analysis/
 
 ## References & Academic Foundation
 
+- **Banco de España (2020, 2023).** Gutiérrez, D., Moral-Benito, E., Oto-Peralías, D., & Ramos, R. *The Spatial Distribution of Population in Spain: An Anomaly in the European Context.* Documentos de Trabajo Banco de España, N.º 2028.
+- **Banco de España (2024).** Gavilán, Á. *El Mercado de la Vivienda en España: Tensiones de Oferta y Retos de Asequibilidad.* Dirección General de Economía y Estadística.
 - **Cheshire, P., & Sheppard, S. (2002).** *The Welfare Economics of Land Use Planning.* Journal of Urban Economics, 52(2), 242-269.
+- **Eurostat & Joint Research Centre (JRC) (2024).** *GEOSTAT 1km² Population Grid & EU-SILC Living Conditions Database.* European Commission.
+- **García-Montalvo, J. (2022).** *El Problema de la Vivienda en España: Rigidez de Oferta y Políticas Públicas.* Ekonomiaz, N.º 109.
 - **Glaeser, E. L., Gyourko, J., & Saks, R. E. (2005).** *Why is Manhattan So Expensive? Regulation and the Rise in Housing Prices.* The Journal of Law and Economics, 48(2), 331-365.
 - **Hilber, C. A., & Vermeulen, W. (2016).** *The Impact of Supply Constraints on House Prices in England.* The Economic Journal, 126(591), 358-405.
+- **Solé-Ollé, A., & Viladecans-Marsal, E. (2012).** *Lobbying, Political Competition, and Local Land Supply: Recent Evidence from Spain.* Journal of Public Economics, 96(1), 10-24.
 - **Tullock, G. (1967).** *The Welfare Costs of Tariffs, Monopolies, and Theft.* Western Economic Journal, 5(3), 224-232.
 - **Buchanan, J. M., & Tullock, G. (1962).** *The Calculus of Consent: Logical Foundations of Constitutional Democracy.* University of Michigan Press.
-- **Ministerio de Transportes, Movilidad y Agenda Urbana (MITMA).** *Estadísticas de Precios de Suelo y Vivienda (2009–2023).*
