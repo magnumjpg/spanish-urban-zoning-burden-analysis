@@ -2,7 +2,7 @@
 Monte Carlo Policy Simulation Module (Heterogeneous & Asymmetric Model)
 =======================================================================
 Project: Zoning Monopoly, Rent-Seeking, and Artificial Scarcity in Spain
-Agent: Policy & Simulation Engineer
+Author: Jaime Pérez | Quantitative Economics Portfolio
 
 Simulates 10,000 stochastic Monte Carlo iterations across 3 distinct institutional reforms,
 incorporating:

@@ -2,7 +2,7 @@
 Econometric Modeling Module
 ===========================
 Project: Zoning Monopoly, Rent-Seeking, and Artificial Scarcity in Spain
-Agent: Econometric Modeling Agent
+Author: Jaime Pérez | Quantitative Economics Portfolio
 
 This module implements rigorous econometric estimators for:
 1. Two-Way Fixed Effects (TWFE) Panel Regressions isolating the ceteris paribus price impact

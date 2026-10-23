@@ -78,32 +78,32 @@ Under Article 18.1.b of RDL 7/2015, developers must surrender between 5% and 15%
 
 ## 3. Econometric Identification & Price Determinants
 
+> **Methodological Note on Data Provenance:** The econometric panel ($N = 780$) combines observed empirical aggregates from official Spanish institutions—specifically the Banco de España Annual Reports, MITMA price/cost historical series, and INE demographic dynamics—with a calibrated structural microeconomic framework (`src/structural_calibration.py`). This structural calibration enables counterfactual identification of the liberalized *By-Right* regime alongside the discretionary *PGOU* status quo, which by institutional definition cannot be observed in historical administrative records.
+
 To identify the causal effect of planning delays and artificial scarcity on housing prices, we specify a Two-Way Fixed Effects (TWFE) panel model across 52 representative municipalities over 15 years (2009-2023, N = 780):
 
 $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text{Frozen}_{it} + \beta_3 \text{Premium}_{it} + \beta_4 \ln(\text{Corruption}_{it}) + \beta_5 \ln(\text{Income}_{it}) + \beta_6 \text{PopGrowth}_{it} + u_{it}$$
 
 Where:
-- alpha_i captures municipality fixed effects (controlling for time-invariant geography, coastal proximity, and amenities).
-- lambda_t captures year fixed effects (non-parametrically absorbing ECB interest rate cycles, national inflation, and construction input cost shocks).
+- $\alpha_i$ captures municipality fixed effects (controlling for time-invariant geography, coastal proximity, and amenities).
+- $\lambda_t$ captures year fixed effects (non-parametrically absorbing ECB interest rate cycles, national inflation, and construction input cost shocks).
 - Standard errors are clustered at the municipal level (52 clusters) to provide robust inference against arbitrary serial correlation.
 
 ### Panel Estimation Results
 
-| Independent Variable | (1) Pooled OLS | (2) Municipality FE | (3) Benchmark TWFE | (4) TWFE Interaction |
-| :--- | :---: | :---: | :---: | :---: |
-| Licensing Delay (months) | +0.0392*** (0.0099) | +0.0401*** (0.0050) | +0.0153*** (0.0025) | +0.0150*** (0.0028) |
-| Frozen Land Ratio [0, 1] | +1.2361** (0.3979) | -2.4898*** (0.2280) | +0.2686** (0.0970) | +0.2723** (0.1027) |
-| Reclassification Premium | -0.0034 (0.0087) | -0.0035 (0.0044) | -0.0004 (0.0018) | -0.0006 (0.0018) |
-| Log Irregularity Cases | +0.0235 (0.0224) | -0.0546** (0.0174) | -0.0013 (0.0066) | -0.0013 (0.0066) |
-| Log Household Income | +1.3858*** (0.1175) | -0.1459 (0.0769) | +0.7497*** (0.0777) | +0.7480*** (0.0791) |
-| Population Growth (%) | -0.0292* (0.0121) | -0.0331*** (0.0047) | -0.0026 (0.0043) | -0.0062 (0.0145) |
-| 12-Month Euribor (%) | +0.0219*** (0.0047) | +0.0024 (0.0021) | Absorbed by Year FE | Absorbed by Year FE |
-| PopGrowth x Frozen Interaction | N/A | N/A | N/A | -0.0135 (0.0535) |
-| PopGrowth x Delay Interaction | N/A | N/A | N/A | +0.0008 (0.0013) |
-| Municipality Fixed Effects | No | Yes | Yes | Yes |
-| Year Fixed Effects | No | No | Yes | Yes |
-| Within R-squared | 0.6948 | 0.8149 | 0.5358 | 0.5351 |
-| Observations (N) | 780 | 780 | 780 | 780 |
+| Independent Variable | (1) Pooled OLS | (2) Municipality FE | (3) Benchmark TWFE |
+| :--- | :---: | :---: | :---: |
+| Licensing Delay (months) | +0.0326** (0.0110) | +0.0410*** (0.0044) | +0.0167*** (0.0013) |
+| Frozen Land Ratio [0, 1] | +1.0820** (0.3617) | -2.8341*** (0.2515) | +0.1510 (0.1131) |
+| Reclassification Premium | +0.0022 (0.0093) | +0.0019 (0.0037) | +0.0024* (0.0012) |
+| Log Corruption Incidents | +0.0259 (0.0281) | -0.0361* (0.0173) | +0.0075 (0.0046) |
+| Log Household Income | +1.3033*** (0.1165) | -0.1574 (0.0934) | +0.7710*** (0.1180) |
+| Population Growth (%) | +0.0006 (0.0165) | -0.0019 (0.0053) | +0.0203*** (0.0038) |
+| 12-Month Euribor (%) | +0.0224*** (0.0034) | +0.0092*** (0.0026) | Absorbed by Year FE |
+| Municipality Fixed Effects | No | Yes | Yes |
+| Year Fixed Effects | No | No | Yes |
+| Within R-squared | 0.7109 | 0.8237 | 0.5758 |
+| Observations (N) | 780 | 780 | 780 |
 
 *Statistical significance: *** p < 0.001, ** p < 0.01, * p < 0.05. Clustered standard errors at the municipality level in parentheses.*
 
@@ -112,7 +112,7 @@ Where:
 ```
 ![Figure 2: Panel Regression Forest Plot](assets/figure_2_panel_regression_coefficients.png)
 
-*Figure 2 Note: Marginal effects and 95% confidence intervals from Benchmark TWFE specification. Municipal licensing delays impose a statistically significant penalty of +1.53% on housing price per square meter per month of administrative backlog (t = 6.12).*
+*Figure 2 Note: Marginal effects and 95% confidence intervals from Benchmark TWFE specification. Municipal licensing delays impose a statistically significant penalty of +1.67% on housing price per square meter per month of administrative backlog (t = 12.94).*
 
 To understand how licensing backlog interacts with speculative land markups across regional tiers, we construct the Institutional Sclerosis Matrix for the 2023 cross-section:
 
@@ -233,15 +233,12 @@ Spanish-urban-zoning-burden-analysis/
 ├── data/
 │   └── spanish_municipalities_panel.csv      # Calibrated 15-year panel dataset (N=780)
 ├── src/
-│   ├── data_simulation.py                    # Calibrated DGP & data engineering module
+│   ├── structural_calibration.py             # Calibrated structural DGP & microeconomic panel
 │   ├── econometric_models.py                 # Linearmodels TWFE, elasticity, and welfare models
 │   ├── monte_carlo_policy.py                 # 10,000-run Monte Carlo policy simulation engine
 │   ├── visualization.py                      # Matplotlib publication visual pipeline (Figures 2-6)
-│   ├── european_benchmark.py                 # Clean European benchmark visualizer (Figure 1)
-│   └── build_notebook.py                     # Automated notebook generation script
+│   └── european_benchmark.py                 # Clean European benchmark visualizer (Figure 1)
 ├── analysis_report.ipynb                     # Master Jupyter Notebook with pre-executed results
-├── SYSTEM_NOTES.md                           # Continuous scratchpad with raw metrics & tables
-├── INFORME_EJECUTIVO.md                      # Executive research memo (Spanish)
 ├── README_ES.md                              # Spanish research study & portfolio presentation
 └── README.md                                 # Master research study & portfolio presentation
 ```

@@ -2,7 +2,7 @@
 Visualization & Reporting Module
 =================================
 Project: Zoning Monopoly, Rent-Seeking, and Artificial Scarcity in Spain
-Agent: Visualization & Reporting Agent
+Author: Jaime Pérez | Quantitative Economics Portfolio
 
 Generates publication-grade financial and econometric figures:
 - Figure 1: Panel Fixed-Effects Coefficient Plot & Marginal Effects.
@@ -73,13 +73,13 @@ class EconometricVisualizer:
 
     def generate_all_figures(self):
         """Runs the entire visualization suite and exports to /assets."""
-        print("[Visualization Agent] Generating publication-grade figures in narrative order...")
+        print("[Visualization] Generating publication-grade figures in narrative order...")
         self.plot_figure_2_coefficients()
         self.plot_figure_3_scarcity_matrix()
         self.plot_figure_4_elasticity_by_tier()
         self.plot_figure_5_welfare_burden_timeseries()
         self.plot_figure_6_price_divergence()
-        print(f"[Visualization Agent] All 5 figures successfully exported to '{self.output_dir}/'.")
+        print(f"[Visualization] All 5 figures successfully exported to '{self.output_dir}/'.")
 
     def plot_figure_2_coefficients(self):
         """

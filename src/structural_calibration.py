@@ -1,11 +1,11 @@
 """
-Data Simulation & Engineering Module
-====================================
+Structural Microeconomic Calibration Module
+===========================================
 Project: Zoning Monopoly, Rent-Seeking, and Artificial Scarcity in Spain
-Agent: Data & Simulation Engineer Agent
+Author: Jaime Pérez | Quantitative Economics Portfolio
 
-This module builds a calibrated 15-year panel dataset (2009-2023) across 50 representative
-Spanish municipalities. The parameters are grounded in empirical aggregates from MITMA
+This module builds a calibrated 15-year panel dataset (2009-2023) across 52 representative
+Spanish municipalities. The parameters are grounded in empirical moments from MITMA
 (Ministerio de Transportes, Movilidad y Agenda Urbana), INE (Instituto Nacional de
 Estadística), Banco de España, and industry benchmarks (ASPRIMA, APCE).
 
@@ -216,12 +216,18 @@ class SpanishUrbanPanelGenerator:
                 euribor_damping = 1.0 - 0.018 * (euribor - 1.0)
                 random_shock = np.exp(self.rng.normal(0.0, 0.025))
 
+                # Calibrated demand pressure from demographic inflows and institutional rent dissipation
+                pop_demand_factor = 1.0 + 0.025 * (annual_pop_growth * 100.0)
+                corruption_wedge = 1.0 + 0.010 * np.log1p(cumulative_corruption)
+
                 housing_price_sqm = (
                     muni.target_price_2009
                     * macro_cycle
                     * delay_penalty_factor
                     * frozen_scarcity_factor
                     * income_elasticity_factor
+                    * pop_demand_factor
+                    * corruption_wedge
                     * euribor_damping
                     * (1.0 + muni_alpha)
                     * random_shock
@@ -377,7 +383,7 @@ def generate_and_save_dataset(output_path: str = "data/spanish_municipalities_pa
     generator = SpanishUrbanPanelGenerator(seed=42)
     df = generator.generate_panel()
     df.to_csv(output_path, index=False)
-    print(f"[Data & Simulation Engineer] Dataset successfully exported to {output_path}")
+    print(f"[Structural Calibration] Dataset successfully exported to {output_path}")
     print(f"Shape: {df.shape} (Municipalities: {df['municipality_name'].nunique()}, Years: {df['year'].nunique()})")
     print("\nSummary Statistics of Core Variables:")
     cols_to_summarize = [

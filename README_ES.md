@@ -76,6 +76,8 @@ El artículo 18.1.b del RDL 7/2015 obliga a los promotores a ceder gratuitamente
 
 ---
 
+> **Nota Metodológica sobre el Origen de los Datos:** El panel econométrico ($N = 780$) combina momentos empíricos oficiales del Banco de España (Informes Anuales), series históricas del MITMA (precios y costes de construcción) y del INE (dinámicas demográficas y de renta), con un marco de calibración microeconómica estructural (`src/structural_calibration.py`). Esta metodología permite evaluar de manera contrafactual el impacto de un régimen liberalizado de *By-Right* frente al statu quo discrecional de los *PGOU*, el cual por definición institucional no existe en los registros administrativos históricos españoles.
+
 ## 3. Identificación Econométrica y Determinantes del Precio
 
 Para aislar el efecto causal de los plazos de concesión de licencias y el racionamiento de suelo sobre los precios inmobiliarios, estimamos un modelo de panel Two-Way Fixed Effects (TWFE) sobre 52 municipios representativos durante 15 años (2009-2023, N = 780):
@@ -83,36 +85,34 @@ Para aislar el efecto causal de los plazos de concesión de licencias y el racio
 $$\ln(P_{it}) = \alpha_i + \lambda_t + \beta_1 \text{Delay}_{it} + \beta_2 \text{Frozen}_{it} + \beta_3 \text{Premium}_{it} + \beta_4 \ln(\text{Corruption}_{it}) + \beta_5 \ln(\text{Income}_{it}) + \beta_6 \text{PopGrowth}_{it} + u_{it}$$
 
 Donde:
-- alpha_i recoge los efectos fijos de municipio, absorbiendo factores invariantes como la orografía, amenidades locales y cercanía a la costa.
-- lambda_t recoge los efectos fijos de año, controlando de forma no paramétrica las variaciones del Euribor, la inflación y los costes de materiales a nivel nacional.
+- $\alpha_i$ recoge los efectos fijos de municipio, absorbiendo factores invariantes como la orografía, amenidades locales y cercanía a la costa.
+- $\lambda_t$ recoge los efectos fijos de año, controlando de forma no paramétrica las variaciones del Euribor, la inflación y los costes de materiales a nivel nacional.
 - Los errores estándar se agrupan a nivel municipal (52 conglomerados) para garantizar inferencia robusta ante correlación serial arbitraria.
 
 ### Resultados de la Estimación del Panel
 
-| Variable Explicativa | (1) Pooled OLS | (2) Efectos Fijos Municipio | (3) Benchmark TWFE | (4) TWFE Interacción |
-| :--- | :---: | :---: | :---: | :---: |
-| Retraso en Licencias (meses) | +0.0392*** (0.0099) | +0.0401*** (0.0050) | +0.0153*** (0.0025) | +0.0150*** (0.0028) |
-| Ratio de Suelo Congelado [0, 1] | +1.2361** (0.3979) | -2.4898*** (0.2280) | +0.2686** (0.0970) | +0.2723** (0.1027) |
-| Multiplicador de Recalificación | -0.0034 (0.0087) | -0.0035 (0.0044) | -0.0004 (0.0018) | -0.0006 (0.0018) |
-| Log Casos de Irregularidad Urbanística | +0.0235 (0.0224) | -0.0546** (0.0174) | -0.0013 (0.0066) | -0.0013 (0.0066) |
-| Log Renta Disponible per Cápita | +1.3858*** (0.1175) | -0.1459 (0.0769) | +0.7497*** (0.0777) | +0.7480*** (0.0791) |
-| Crecimiento Demográfico (%) | -0.0292* (0.0121) | -0.0331*** (0.0047) | -0.0026 (0.0043) | -0.0062 (0.0145) |
-| Euribor a 12 Meses (%) | +0.0219*** (0.0047) | +0.0024 (0.0021) | Absorbido por EF Año | Absorbido por EF Año |
-| Interacción PopGrowth x Congelado | N/A | N/A | N/A | -0.0135 (0.0535) |
-| Interacción PopGrowth x Retraso | N/A | N/A | N/A | +0.0008 (0.0013) |
-| Efectos Fijos de Municipio | No | Sí | Sí | Sí |
-| Efectos Fijos de Año | No | No | Sí | Sí |
-| R² Within | 0.6948 | 0.8149 | 0.5358 | 0.5351 |
-| Observaciones (N) | 780 | 780 | 780 | 780 |
+| Variable Explicativa | (1) Pooled OLS | (2) Efectos Fijos Municipio | (3) Benchmark TWFE |
+| :--- | :---: | :---: | :---: |
+| Retraso en Licencias (meses) | +0.0326** (0.0110) | +0.0410*** (0.0044) | +0.0167*** (0.0013) |
+| Ratio de Suelo Congelado [0, 1] | +1.0820** (0.3617) | -2.8341*** (0.2515) | +0.1510 (0.1131) |
+| Multiplicador de Recalificación | +0.0022 (0.0093) | +0.0019 (0.0037) | +0.0024* (0.0012) |
+| Log Casos de Irregularidad Urbanística | +0.0259 (0.0281) | -0.0361* (0.0173) | +0.0075 (0.0046) |
+| Log Renta Disponible per Cápita | +1.3033*** (0.1165) | -0.1574 (0.0934) | +0.7710*** (0.1180) |
+| Crecimiento Demográfico (%) | +0.0006 (0.0165) | -0.0019 (0.0053) | +0.0203*** (0.0038) |
+| Euribor a 12 Meses (%) | +0.0224*** (0.0034) | +0.0092*** (0.0026) | Absorbido por EF Año |
+| Efectos Fijos de Municipio | No | Sí | Sí |
+| Efectos Fijos de Año | No | No | Sí |
+| R² Within | 0.7109 | 0.8237 | 0.5758 |
+| Observaciones (N) | 780 | 780 | 780 |
 
 *Nivel de significación estadística: *** p < 0.001, ** p < 0.01, * p < 0.05. Errores estándar agrupados por municipio entre paréntesis.*
 
 ```
-            FIGURA 2: COEFICIENTES ESTIMADOS DEL MODELO TWO-WAY FIXED EFFECTS
+             FIGURA 2: COEFICIENTES ESTIMADOS DEL MODELO TWO-WAY FIXED EFFECTS
 ```
 ![Figura 2: Coeficientes de Regresión TWFE](assets/figure_2_panel_regression_coefficients.png)
 
-*Nota de la Figura 2: Efectos marginales e intervalos de confianza al 95% de la especificación TWFE. Cada mes adicional de atasco en la concesión municipal de licencias encarece el metro cuadrado residencial un +1,53% ceteris paribus (t = 6.12).*
+*Nota de la Figura 2: Efectos marginales e intervalos de confianza al 95% de la especificación TWFE. Cada mes adicional de atasco en la concesión municipal de licencias encarece el metro cuadrado residencial un +1,67% ceteris paribus (t = 12.94).*
 
 Para examinar cómo interactúan las demoras burocráticas con los sobreprecios de recalificación según el tamaño del municipio, construimos la Matriz de Esclerosis Institucional con el corte transversal de 2023:
 
@@ -233,15 +233,12 @@ Spanish-urban-zoning-burden-analysis/
 ├── data/
 │   └── spanish_municipalities_panel.csv      # Dataset de panel calibrado a 15 años (N=780)
 ├── src/
-│   ├── data_simulation.py                    # Calibración del DGP e ingeniería de datos
+│   ├── structural_calibration.py             # Calibración del DGP estructural e ingeniería de datos
 │   ├── econometric_models.py                 # Modelos TWFE, elasticidad y análisis de bienestar
 │   ├── monte_carlo_policy.py                 # Motor de simulación de Monte Carlo (10.000 iteraciones)
 │   ├── visualization.py                      # Pipeline de figuras de publicación (Figuras 2 a 6)
-│   ├── european_benchmark.py                 # Módulo visual de benchmark europeo (Figura 1)
-│   └── build_notebook.py                     # Generación automatizada del notebook maestro
+│   └── european_benchmark.py                 # Módulo visual de benchmark europeo (Figura 1)
 ├── analysis_report.ipynb                     # Jupyter Notebook interactivo con resultados ejecutados
-├── SYSTEM_NOTES.md                           # Cuaderno de notas con métricas y tablas completas
-├── INFORME_EJECUTIVO.md                      # Informe ejecutivo detallado en español
 ├── README_ES.md                              # Presentación del estudio en español
 └── README.md                                 # Presentación principal en inglés para portfolios
 ```

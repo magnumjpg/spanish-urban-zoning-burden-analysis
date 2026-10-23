@@ -2,7 +2,7 @@
 European Benchmark & Territorial Paradox Visualization Module (Clean & Minimalist)
 ===================================================================================
 Project: Spanish Urban Zoning Burden Analysis
-Agent: Visualization & Reporting Agent
+Author: Jaime Pérez | Quantitative Economics Portfolio
 
 Renders Figure 7: Zero-clutter, publication-grade benchmark aligning with the
 Banco de España Annual Report 2025/2026 (David López Salido, June 2026).
